@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>主页</title>
+    
+      <!-- Set render engine for 360 browser -->
+      <meta name="renderer" content="webkit">
+    
+      <!-- No Baidu Siteapp-->
+      <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    
+      <link rel="icon" type="image/png" href="../assets/i/favicon.png">
+    
+      <!-- Add to homescreen for Chrome on Android -->
+      <meta name="mobile-web-app-capable" content="yes">
+      <link rel="icon" sizes="192x192" href="../assets/i/app-icon72x72@2x.png">
+    
+      <!-- Add to homescreen for Safari on iOS -->
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+      <link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
+    
+      <!-- Tile icon for Win8 (144x144 + tile color) -->
+      <meta name="msapplication-TileImage" content="../assets/i/app-icon72x72@2x.png">
+      <meta name="msapplication-TileColor" content="#0e90d2">
+    
+      <link rel="stylesheet" href="../assets/css/amazeui.min.css">
+      <link rel="stylesheet" href="../assets/css/app.css">
+      <link rel="stylesheet" href="../css/home.css">
+      <style>
+          .book{width: 78%;    height: auto;    padding-left: 11%;}
+      </style>
+    </head>
+    <body>
+   
+        <header class="am-topbar am-topbar-fixed-top">
+            <div class="am-container">
+              <h1 class="am-topbar-brand">
+                <a href="#">蓝剑图书馆</a>
+              </h1>
+          
+              <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only am-collapsed" data-am-collapse="{target: '#collapse-head'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+          
+              <div class="am-topbar-collapse am-collapse" id="collapse-head" style="height: 20px;">
+                <ul class="am-nav am-nav-pills am-topbar-nav">
+                  <li ><a href="../home.html">首页</a></li>
+                  <li class="am-active"><a href="#">图书清单</a></li>
+                  <!-- <li class="am-dropdown" data-am-dropdown="">
+                    <a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
+                      榜单 <span class="am-icon-caret-down"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                      <li><a href="#">借阅排行榜</a></li>
+                      <li><a href="#">热门评论榜</a></li>
+                      <li><a href="#">3. 文字排版</a></li>
+                      <li><a href="#">4. 网格系统</a></li>
+                    </ul>
+                  </li> -->
+                </ul>
+          
+                <div class="am-topbar-right">
+                  <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm"><span class="am-icon-pencil"></span> 注册</button>
+                </div>
+          
+                <div class="am-topbar-right">
+                  <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> 登录</button>
+                </div>
+              </div>
+            </div>
+          </header>
+
+
+          <div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{&quot;directionNav&quot;:false}' >
+            <ul class="am-slides">
+                <li>
+                      <img src="../images/bannerl_1.jpg">
+                   
+                </li>
+                <li>
+                      <img src="../images/bannerl_2.jpg">
+                   
+                </li>
+            </ul>
+          </div>
+
+
+          <div style="background:#f6f5ee">
+            <h3 style="text-align:center;    margin: 0 0 0 0; padding-top:10px;  font-weight: 500;">热门推荐</h3>
+            <ul data-am-widget="gallery" class="am-gallery am-avg-sm-3
+            am-avg-md-3 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview: true }" >
+                <li>
+                    <div class="">
+                        <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
+                        <img src="../images/book1.jpg"  alt="远方 有一个地方 那里种有我们的梦想" class="book"/>
+                            <h3 class="am-gallery-title">Linux从入门到放弃</h3>
+                            <div class="am-gallery-desc">作者：程序员</div>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="">
+                        <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
+                        <img src="../images/book1.jpg"  alt="某天 也许会相遇 相遇在这个好地方" class="book"/>
+                            <h3 class="am-gallery-title">颈椎病康复指南</h3>
+                            <div class="am-gallery-desc">作者：IT民工</div>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="">
+                        <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">
+                        <img src="../images/book1.jpg"  alt="不要太担心 只因为我相信" class="book"/>
+                            <h3 class="am-gallery-title">活着</h3>
+                            <div class="am-gallery-desc">作者：IT工程师</div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+
+            <h3 style="text-align:center;    margin: 0 0 0 0; padding-top:10px;  font-weight: 500;">最新上架</h3>
+            <ul data-am-widget="gallery" class="am-gallery am-avg-sm-3
+            am-avg-md-3 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview: true }" >
+                <li>
+                    <div class="">
+                        <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
+                        <img src="../images/book1.jpg"  alt="远方 有一个地方 那里种有我们的梦想" class="book"/>
+                            <h3 class="am-gallery-title">Linux从入门到放弃</h3>
+                            <div class="am-gallery-desc">作者：程序员</div>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="">
+                        <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
+                        <img src="../images/book1.jpg"  alt="某天 也许会相遇 相遇在这个好地方" class="book"/>
+                            <h3 class="am-gallery-title">颈椎病康复指南</h3>
+                            <div class="am-gallery-desc">作者：IT民工</div>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="">
+                        <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">
+                        <img src="../images/book1.jpg"  alt="不要太担心 只因为我相信" class="book"/>
+                            <h3 class="am-gallery-title">活着</h3>
+                            <div class="am-gallery-desc">作者：IT工程师</div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+          </div>
+          
+
+        <div style="    margin: 11px 10px 10px 10px;">
+           <a href="type.html"> <img src="../images/column1.jpg" alt="" style="width:100%;"> </a>
+        </div>
+            
+        <div style="    margin: 0 10px 10px 10px;">
+          <a href="">  <img src="../images/column2.jpg" alt="" style="width:100%;"></a>
+        </div>
+
+    
+    <!--在这里编写你的代码-->
+    
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lte IE 8 ]>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+    <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+    <![endif]-->
+    <script src="../assets/js/amazeui.min.js"></script>
+    </body>
+    </html>
