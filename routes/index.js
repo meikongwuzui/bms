@@ -3,7 +3,7 @@ var router=express.Router();
 var weixinApi=require('weixin-api');
 
 router.get('/',function(req,res){
-    res.sendFile('public/'+'home.html');
+    res.sendFile(path.join(__dirname,'../public/home.html'));
 });
 
 router.get('/api',function(req,res){
