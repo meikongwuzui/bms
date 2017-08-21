@@ -38,7 +38,7 @@ function resTextMsg(){
         resMsg={
             fromUserName:msg.toUserName,
             toUserName:msg.fromUserName,
-            msgType:"event",
+            msgType:"text",
             content:content,
             funcFlag:0
         };
