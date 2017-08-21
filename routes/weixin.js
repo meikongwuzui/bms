@@ -27,13 +27,13 @@ function resTextMsg(){
     });
 
     // 监听事件消息
-    weixin.eventMsg(function(msg) {
+    weixinApi.eventMsg(function(msg) {
         console.log("eventMsg received");
         console.log(JSON.stringify(msg));
         var content="消息内容:"+msg.content+"\n";
         content=content+"toUserName:"+msg.toUserName+"\n";
         content=content+"fromUserName:"+msg.fromUserName+"\n";
-        
+
         var resMsg={};
         resMsg={
             fromUserName:msg.toUserName,
