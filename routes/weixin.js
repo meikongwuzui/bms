@@ -33,7 +33,7 @@ function resTextMsg(){
         var content="消息内容:"+msg.scancodeinfo+"\n";
         content=content+"toUserName:"+msg.toUserName+"\n";
         content=content+"fromUserName:"+msg.fromUserName+"\n";
-        content=content+"ScanCodeInfo:"+msg.sancodeinfo+"\n";
+        content=content+"ScanCodeInfo:"+msg.sancodeinfo.ScanResult+"\n";
 
         var resMsg={};
         resMsg={
