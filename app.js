@@ -1,6 +1,6 @@
 var express=require("express");
 var routes=require('./routes/index');
-var WinXin=require('./routes/weixin');
+var WeiXin=require('./routes/weixin');
 
 var app=express();
 app.set('views','views');
