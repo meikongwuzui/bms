@@ -30,7 +30,7 @@ function resTextMsg(){
     weixinApi.eventMsg(function(msg) {
         console.log("eventMsg received");
         console.log(JSON.stringify(msg));
-        var content="消息内容:"+msg.content+"\n";
+        var content="消息内容:"+msg.scancodeinfo+"\n";
         content=content+"toUserName:"+msg.toUserName+"\n";
         content=content+"fromUserName:"+msg.fromUserName+"\n";
 
