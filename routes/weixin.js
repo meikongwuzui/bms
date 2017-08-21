@@ -2,7 +2,7 @@ var weixinApi=require('weixin-api');
 
 function WeiXin(){
     this.initMsg=function(){
-        weixinApi.token='';
+        weixinApi.token='bms';
     }
 }
 
