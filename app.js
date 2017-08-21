@@ -11,6 +11,7 @@ app.use(express.static('public'));
 app.use('/',routes);
 
 WeiXin.initMsg();
+WeiXin.responseMsg();
 
 var server=app.listen(80,function(){
     var host=server.address().address;
