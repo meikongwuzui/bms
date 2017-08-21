@@ -10,4 +10,4 @@ app.use(express.static('public'));
 
 app.use('/',routes);
 
-Weixin.initMsg();
+WeiXin.initMsg();
