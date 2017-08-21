@@ -3,6 +3,10 @@ var router=express.Router();
 var weixinApi=require('weixin-api');
 
 router.get('/',function(req,res){
+    res.sendFile(__dirname+'/'+'home.html');
+});
+
+router.get('/api',function(req,res){
     if(weixinApi.checkSignature(req)){
         res.status(200).send(req.query.echostr);
     }
@@ -11,7 +15,7 @@ router.get('/',function(req,res){
     }
 });
 
-router.post('/',function(req,res){
+router.post('/api',function(req,res){
     weixinApi.loop(req,res);
 });
 
