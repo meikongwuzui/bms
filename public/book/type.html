@@ -110,14 +110,14 @@
               if(list[i].layer==1){
                 str+="<dt>"+ list[i].name+ "</dt>"
                 str+="<dd>"
-                  for(var j=0;j<list.length;j++){
-                    if(list[i].pkid==list[j].fkparentid){
-                      str+="<li>"+
-                              "<a href='list.html?t="+list[j]+"'>"+list[j].name+"</a>\
-                            </li>"
-                    }
-                str+="</dd>";
+                for(var j=0;j<list.length;j++){
+                  if(list[i].pkid==list[j].fkparentid){
+                    str+="<li>"+
+                            "<a href='list.html?t="+list[j]+"'>"+list[j].name+"</a>\
+                          </li>"
+                  }
                 }
+                str+="</dd>";
               }
             }
             $('#booklist').html(str);
