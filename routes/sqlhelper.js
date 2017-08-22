@@ -2,7 +2,7 @@ var mysql=require('mysql');
 
 
 function SQLHelper(){
-    this.query=function(sqlstr){
+    this.query=function(sqlstr,callback){
         
         var connection=mysql.createConnection({
             host:'rm-wz98803n5662x8c24o.mysql.rds.aliyuncs.com',
@@ -28,7 +28,7 @@ function SQLHelper(){
             console.log('result:'+ JSON.stringify(result));
             var resdata=JSON.stringify(result);
             console.log(resdata);
-            return resdata;
+            callback(resdata);
         });
         
         connection.end(function(err){
