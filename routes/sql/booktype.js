@@ -14,6 +14,7 @@ function b_booktype(){
     //     ')
     //     return result;
     var result= sqlhelper.query('SELECT 1+1 as solution    ')
+    console.log(result);
     return result;
     }
 }
