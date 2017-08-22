@@ -2,6 +2,7 @@ var express=require('express');
 var router=express.Router();
 var weixinApi=require('weixin-api');
 var path=require('path');
+var booktype=require('./sql/booktype');
 
 router.get('/',function(req,res){
     res.sendFile(path.join(__dirname,'../public/home.html'));
@@ -19,5 +20,10 @@ router.get('/api',function(req,res){
 router.post('/api',function(req,res){
     weixinApi.loop(req,res);
 });
+
+router.get('/booktype/getlist',function(req,res){
+   var result=booktype.getlist();
+   res.status(200).send(result);
+})
 
 module.exports=router;

@@ -23,7 +23,7 @@ function SQLHelper(){
                 console.log('[query]-'+err);
                 return;
             }
-            console.log('this solution is:',rows[0].solution);
+            return [rows,fields];
         });
         
         connection.end(function(err){
