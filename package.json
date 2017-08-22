@@ -1,0 +1,24 @@
+{
+  "name": "bms",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "~4.15.4",
+    "weixin-api": "~0.1.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meikongwuzui/bms.git"
+  },
+  "author": "greene",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meikongwuzui/bms/issues"
+  },
+  "homepage": "https://github.com/meikongwuzui/bms"
+}
