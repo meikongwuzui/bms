@@ -22,8 +22,9 @@ router.post('/api',function(req,res){
 });
 
 router.get('/booktype/getlist',function(req,res){
-   var result=booktype.getlist();
-   res.status(200).send(result);
+   booktype.getlist(function(result){
+    res.status(200).send(result);
+   });
 })
 
 module.exports=router;
