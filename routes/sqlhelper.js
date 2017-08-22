@@ -27,7 +27,8 @@ function SQLHelper(){
                 return;
             }
             console.log('result:'+ JSON.stringify(result));
-            resdata=result;
+            resdata=JSON.stringify(result);
+            console.log(resdata);
         });
         
         connection.end(function(err){
