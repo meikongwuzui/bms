@@ -7,7 +7,8 @@ function SQLHelper(){
             host:'rm-wz98803n5662x8c24o.mysql.rds.aliyuncs.com',
             port:'3306',
             user:'root',
-            password:'qq-999999'
+            password:'qq-999999',
+            database:'bms'
         });
         
         connection.connect(function(err){
