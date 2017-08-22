@@ -1,8 +1,8 @@
 var mysql=require('mysql');
-var sqlhelper={};
 
-sqlhelper={
-    query:function(sqlstr){
+
+function SQLHelper(){
+    this.query=function(sqlstr){
         var connection=mysql.createConnection({
             host:'---rm-wz98803n5662x8c24.mysql.rds.aliyuncs.com',
             port:'3306',
@@ -35,4 +35,4 @@ sqlhelper={
     }
 }
 
-module.exports=new sqlhelper();
+module.exports=new SQLHelper();
