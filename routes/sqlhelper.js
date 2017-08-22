@@ -29,6 +29,7 @@ function SQLHelper(){
             console.log('result:'+ JSON.stringify(result));
             resdata=JSON.stringify(result);
             console.log(resdata);
+            return resdata;
         });
         
         connection.end(function(err){
@@ -38,9 +39,6 @@ function SQLHelper(){
             }
             console.log('[connection end] succeed!');
         })
-
-        console.log(resdata);
-        return resdata;
     }
 }
 
