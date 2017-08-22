@@ -19,12 +19,12 @@ function SQLHelper(){
             console.log('[connection conn] succeed!');
         });
         
-        connection.query(sqlstr,function(err,rows,fields){
+        connection.query(sqlstr,function(err,result){
             if(err){
                 console.log('[query]-'+err);
                 return;
             }
-            return [rows,fields];
+            return result;
         });
         
         connection.end(function(err){
