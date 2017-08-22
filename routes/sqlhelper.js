@@ -26,6 +26,7 @@ function SQLHelper(){
                 console.log('[query]-'+err);
                 return;
             }
+            console.log('result:'+result);
             resdata=result;
         });
         
