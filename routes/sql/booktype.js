@@ -12,7 +12,6 @@ function b_booktype(){
         FROM\
         b_booktype\
         ')
-        console.log(JSON.stringify(result));
         return result;
     }
 }

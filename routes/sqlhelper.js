@@ -3,6 +3,8 @@ var mysql=require('mysql');
 
 function SQLHelper(){
     this.query=function(sqlstr){
+        var resdata;
+
         var connection=mysql.createConnection({
             host:'rm-wz98803n5662x8c24o.mysql.rds.aliyuncs.com',
             port:'3306',
@@ -13,7 +15,7 @@ function SQLHelper(){
         
         connection.connect(function(err){
             if(err){
-                console.log('[query]-'+err);
+                console.log('[connection conn]-'+err);
                 return;
             }
             console.log('[connection conn] succeed!');
@@ -24,15 +26,19 @@ function SQLHelper(){
                 console.log('[query]-'+err);
                 return;
             }
-            return result;
+            resdata=result;
         });
         
         connection.end(function(err){
             if(err){
+                console.log('[connection end]-'+err);
                 return;
             }
             console.log('[connection end] succeed!');
         })
+
+        console.log(resdata);
+        return resdata;
     }
 }
 
