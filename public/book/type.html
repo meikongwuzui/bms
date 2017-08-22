@@ -105,20 +105,24 @@
           url:'../booktype/getlist',
           success:function(data){
             var list=data;
-            var str;
+            var str="";
             for(var i=0;i<list.length;i++){
-              str+="<dt>"+
-                    list[i].name+
-                  "</dt>\
-                  <dd>\
-                    <li>\
-                      <a href='/cat/detail/147?app='>投资理财</a>\
-                    </li>\
-                  </dd> ";
+              if(list[i].layer==1){
+                str+="<dt>"+ list[i].name+ "</dt>"
+                str+="<dd>"
+                  for(var j=0;i<list.length;j++){
+                    if(list[i].pkid==list[j].fkparentid){
+                      str+="<li>"+
+                              "<a href='list.html?t="+list[j]+"'>"+list[j].name+"</a>\
+                            </li>"
+                    }
+                str+="</dd>";
+                }
+              }
             }
-            
+            $('#booklist').html(str);
           }
-        })
+        });
       });
     </script>
     </body>
