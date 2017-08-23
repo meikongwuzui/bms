@@ -27,7 +27,7 @@ router.get('/booktype/getlist',function(req,res){
    });
 })
 
-router.get('booktype/list',function(req,res){
+router.get('/booktype/list',function(req,res){
     res.render('../views/booktype/list')
 })
 
