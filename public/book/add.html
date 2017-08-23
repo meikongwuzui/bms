@@ -103,7 +103,7 @@
                     封面
                   </div>
                   <div class="am-u-sm-10 am-u-md-4">
-                      <img id='bookcover' src="https://img3.doubanio.com/mpic/s28289936.jpg" />
+                      <img id='bookcover' src="" />
                   </div>
                 </div>
   
@@ -308,60 +308,72 @@
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script src="https://cdn.bootcss.com/js-sha1/0.4.1/sha1.js"></script>
     <script>
-      // $.ajax('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxa4e7517fe99f820e&secret=513a774504039197f29fcf486ddb32c5',function(result){
-      //     alert(result.access_token)
-      // })
-      var access_token='o8BXXFqepYeHSjmNtirKo7Fu4VZfoZfcBkbcYi9LopjgUjZKUC-_PUJN1H1EUBUvmewV8Lnvn322-zTo706gZjVcQFfrbpXEPZ1AdxFjUU1PzzcMGEqXOotftP7nVM7kOACdAJAVHJ';
-      // $.ajax({
-      //   url:'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token='+access_token+'&type=jsapi',
-      //   type:'get',
-      //   success:function(res){
-      //     alert(res.ticket);
-      //   }
-      // });
-      var ticket='sM4AOVdWfPE4DxkXGEs8VMcBYPy2SqtjQ7UEC_24ZkJNEwBvLfZiJYHgUT_ka9OyANKHPUnJjSet3YJQ59iO_Q';
-      var str='jsapi_ticket='+ticket+'&noncestr=Wm3WZYTPz0wzccnW&timestamp=1503494323&url='+location.href;
-      var signature=sha1(str);
-    </script>
-    <script>
-      wx.config({
-        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-        appId: 'wxa4e7517fe99f820e', // 必填，公众号的唯一标识
-        timestamp: 1503494323 , // 必填，生成签名的时间戳
-        nonceStr: 'Wm3WZYTPz0wzccnW', // 必填，生成签名的随机串
-        signature: signature,// 必填，签名，见附录1
-        jsApiList: ['scanQRCode'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-      });
-      wx.ready(function(){
-          // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
-          //alert('ok');
+      $.ajax({
+        type: "GET",
+        url: "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxa4e7517fe99f820e&secret=513a774504039197f29fcf486ddb32c5",
+        data: {},
+        dataType: 'jsonp',
+        crossDomain: true,
+        success: function(result){
+          var access_token = result.access_token;
+          $.ajax({
+            type: "GET",
+            url: 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token='+access_token+'&type=jsapi',
+            data: {},
+            dataType: 'jsonp',
+            crossDomain: true,
+            success: function(res){
+             var ticket = res.ticket;
+             var str='jsapi_ticket='+ticket+'&noncestr=Wm3WZYTPz0wzccnW&timestamp=1503495323&url='+location.href;
+             var signature=sha1(str);
 
-          wx.checkJsApi({
-            jsApiList: ['scanQRCode'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
-            success: function(res) {
-                // 以键值对的形式返回，可用的api值true，不可用为false
-                // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
-                //alert(res);
-            },
-            error:function(res){
+             wx.config({
+              debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+              appId: 'wxa4e7517fe99f820e', // 必填，公众号的唯一标识
+              timestamp: 1503495323 , // 必填，生成签名的时间戳
+              nonceStr: 'Wm3WZYTPz0wzccnW', // 必填，生成签名的随机串
+              signature: signature,// 必填，签名，见附录1
+              jsApiList: ['scanQRCode'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+            wx.ready(function(){
+                // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+                //alert('ok');
+
+                wx.checkJsApi({
+                  jsApiList: ['scanQRCode'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+                  success: function(res) {
+                      // 以键值对的形式返回，可用的api值true，不可用为false
+                      // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+                      //alert(res);
+                  },
+                  error:function(res){
+                    //alert(res);
+                  }
+                });
+            });
+            wx.error(function(res){
+              // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
               //alert(res);
+            });
+
             }
           });
+        }
       });
-      wx.error(function(res){
-        // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
-        //alert(res);
-      });
+      
     </script>
     <script>
-      // $('#btnscanQr').click(function(){
-        // wx.scanQRCode({
-        //   needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
-        //   scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
-        //   success: function (res) {
-        //       var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+      
+    </script>
+    <script>
+      $('#btnscanQr').click(function(){
+        wx.scanQRCode({
+          needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+          scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+          success: function (res) {
+              var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
               // alert(result);
-              var result='EAN_13,9787115346421';
+              // var result='EAN_13,9787115346421';
               $.ajax({
                 type: "GET",
                 url: "https://api.douban.com/v2/book/isbn/"+result.split(',')[1],
@@ -385,9 +397,9 @@
                   $('#catelogue').val(bio.catalog);
                 }
             });
-      //     }
-      //   });
-      // });      
+          }
+        });
+      });      
     </script>
     </body>
     </html>
