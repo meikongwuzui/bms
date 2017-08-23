@@ -24,7 +24,7 @@ function Jssdk(){
             callback.apply(null);  
         });  
     },
-    this.getjsapi_ticket=function(access_token){
+    this.getjsapi_ticket=function(access_token,callback){
         //get 请求外网  
         var url="https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="+access_token+"&type=jsapi";
 
