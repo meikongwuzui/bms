@@ -51,7 +51,7 @@ router.get('/book/detail',function(req,res){
     }
 })
 
-router.get('/weixin/getaccess_token',function(req,res){
+router.get('/weixin/getjsticket',function(req,res){
     jssdk.getaccess_token(function(result){
         jssdk.getjsapi_ticket(JSON.parse(result).access_token,function(data){
             res.status(200).send(data);

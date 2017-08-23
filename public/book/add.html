@@ -309,21 +309,11 @@
     <script src="https://cdn.bootcss.com/js-sha1/0.4.1/sha1.js"></script>
     <script>
       $(function(){ 
-      $.ajax({
-        type: "GET",
-        url: "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxa4e7517fe99f820e&secret=513a774504039197f29fcf486ddb32c5",
-        data: {},
-        dataType: 'jsonp',
-        crossDomain: true,
-        success: function(result){
-          var access_token = result.access_token;
-          alert('accesstoken:'+access_token);
           $.ajax({
             type: "GET",
-            url: "https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="+access_token+"&type=jsapi",
+            url: "../weixin/getjsticket",
             data: {},
-            dataType: 'jsonp',
-            crossDomain: true,
+            dataType: 'json',
             success: function(res){
              var ticket = res.ticket;
              var str='jsapi_ticket='+ticket+'&noncestr=Wm3WZYTPz0wzccnW&timestamp=1503495323&url='+location.href;
@@ -360,8 +350,6 @@
 
             }
           });
-        }
-      });
       });
     </script>
     <script>
