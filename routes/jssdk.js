@@ -14,7 +14,8 @@ function Jssdk(){
             });  
             res.on("end", function () {  
                 var buff = Buffer.concat(datas, size);  
-                var result = iconv.decode(buff, "utf8");//转码//var result = buff.toString();//不需要转编码,直接tostring  
+                // var result = iconv.decode(buff, "utf8");//转码
+                var result = buff.toString();//不需要转编码,直接tostring  
                 console.log(result);  
             });  
         }).on("error", function (err) {  
