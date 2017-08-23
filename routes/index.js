@@ -52,7 +52,13 @@ router.get('/book/detail',function(req,res){
 })
 
 router.get('/weixin/getaccess_token',function(req,res){
-    jssdk.getaccess_token();
+    jssdk.getaccess_token(function(result){
+        alert(result);
+        jssdk.getjsapi_ticket(JSON.parse(result).access_token,function(res){
+            alert(res);
+            res.status(200).send(res);
+        });
+    });
 })
 
 module.exports=router;
