@@ -46,6 +46,7 @@ html(lang='en')
       .am-offcanvas
         .am-offcanvas-bar
             ul.am-menu-nav.am-avg-sm-1
+                -var booktypelist=[{name:'a'},{name:'b'}]
                 -for(var item in booktypelist )
                     -if(item.layer==1){
                         li.am-parent
