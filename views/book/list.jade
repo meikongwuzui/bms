@@ -34,7 +34,7 @@ html(lang='en')
             | 首页
           i.am-header-icon.am-icon-home
       h1.am-header-title
-        | 言情小说
+        | #{booklist[0].typename}
       .am-header-right.am-header-nav
         a(href='#right-link')
           span.am-header-nav-title
@@ -65,15 +65,16 @@ html(lang='en')
         ul.am-list
           // 缩略图在标题左边
           -for book in booklist
-            li.am-g.am-list-item-desced.am-list-item-thumbed.am-list-item-thumb-left
-              .am-u-sm-4.am-list-thumb
-                a(href='./detail')
-                  img(src='#{book.bookcover}', alt='#{book.name}')
-              .am-u-sm-8.am-list-main
-                h3.am-list-item-hd
-                  a(href='http://www.douban.com/online/11624755/') #{book.name}
-                .am-list-item-text
-                  | #{book.contentintroduction}
+            -if(book.pkid&&book.pkid>0)
+              li.am-g.am-list-item-desced.am-list-item-thumbed.am-list-item-thumb-left
+                .am-u-sm-4.am-list-thumb
+                  a(href='./detail')
+                    img(src='#{book.bookcover}', alt='#{book.name}')
+                .am-u-sm-8.am-list-main
+                  h3.am-list-item-hd
+                    a(href='http://www.douban.com/online/11624755/') #{book.name}
+                  .am-list-item-text
+                    | #{book.contentintroduction}
     // 在这里编写你的代码
     // [if (gte IE 9)|!(IE)] <!
     script(src='../assets/js/jquery.min.js')
