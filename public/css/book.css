@@ -1,0 +1,136 @@
+div {
+    display: block;
+}
+/* .sf-edu-yuedu html, .sf-edu-yuedu body, .sf-edu-yuedu div, .sf-edu-yuedu span, .sf-edu-yuedu applet, .sf-edu-yuedu object, .sf-edu-yuedu iframe, .sf-edu-yuedu h1, .sf-edu-yuedu h2, .sf-edu-yuedu h3, .sf-edu-yuedu h4, .sf-edu-yuedu h5, .sf-edu-yuedu h6, .sf-edu-yuedu p, .sf-edu-yuedu blockquote, .sf-edu-yuedu pre, .sf-edu-yuedu a, .sf-edu-yuedu abbr, .sf-edu-yuedu acronym, .sf-edu-yuedu address, .sf-edu-yuedu big, .sf-edu-yuedu cite, .sf-edu-yuedu code, .sf-edu-yuedu del, .sf-edu-yuedu dfn, .sf-edu-yuedu em, .sf-edu-yuedu img, .sf-edu-yuedu ins, .sf-edu-yuedu kbd, .sf-edu-yuedu q, .sf-edu-yuedu s, .sf-edu-yuedu samp, .sf-edu-yuedu small, .sf-edu-yuedu strike, .sf-edu-yuedu strong, .sf-edu-yuedu sub, .sf-edu-yuedu sup, .sf-edu-yuedu tt, .sf-edu-yuedu var, .sf-edu-yuedu b, .sf-edu-yuedu u, .sf-edu-yuedu i, .sf-edu-yuedu center, .sf-edu-yuedu dl, .sf-edu-yuedu dt, .sf-edu-yuedu dd, .sf-edu-yuedu ol, .sf-edu-yuedu ul, .sf-edu-yuedu li, .sf-edu-yuedu fieldset, .sf-edu-yuedu form, .sf-edu-yuedu label, .sf-edu-yuedu legend, .sf-edu-yuedu table, .sf-edu-yuedu caption, .sf-edu-yuedu tbody, .sf-edu-yuedu tfoot, .sf-edu-yuedu thead, .sf-edu-yuedu tr, .sf-edu-yuedu th, .sf-edu-yuedu td, .sf-edu-yuedu article, .sf-edu-yuedu aside, .sf-edu-yuedu canvas, .sf-edu-yuedu details, .sf-edu-yuedu figcaption, .sf-edu-yuedu figure, .sf-edu-yuedu footer, .sf-edu-yuedu header, .sf-edu-yuedu hgroup, .sf-edu-yuedu menu, .sf-edu-yuedu nav, .sf-edu-yuedu section, .sf-edu-yuedu summary, .sf-edu-yuedu time, .sf-edu-yuedu mark, .sf-edu-yuedu audio, .sf-edu-yuedu video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+} */
+
+.sf-edu-yuedu a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.sf-edu-yuedu .book-info {
+    background-color: #fefefc;
+    position: relative;
+}
+
+.sf-edu-yuedu .book-info .info-wrap {
+    position: relative;
+    min-height: 12.5rem;
+    padding: 1.5rem 1.2rem 0;
+}
+
+
+.sf-edu-yuedu .book-info .info-wrap .book-cover {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.2rem;
+    width: 9rem;
+    height: 12rem;
+}
+.sf-edu-yuedu .book-info .info-wrap .book-cover:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform-origin: left top;
+    -webkit-transform-origin: left top;
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    border-radius: .3rem;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+.sf-edu-yuedu .book-info .info-wrap .info {
+    padding-left: 11rem;
+    line-height: 2rem;
+    font-size: 1.3rem;
+    color: #a4a4a4;
+}
+
+.sf-edu-yuedu .book-info .info-wrap .title {
+    max-height: 4.8rem;
+    line-height: 2.4rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #5b5b5b;
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.sf-edu-yuedu .book-info .btn-wrap {
+    position: relative;
+    padding: 1.2rem 1.2rem 2.5rem;
+    overflow: hidden;
+}
+
+.sf-edu-yuedu .book-info .btn-wrap:after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 0;
+    transform-origin: left bottom;
+    -webkit-transform-origin: left bottom;
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    border-bottom: 1px solid #e7e7e2;
+}
+
+.sf-edu-yuedu .book-info .btn-wrap .btn {
+    position: relative;
+    height: 3.6rem;
+    line-height: 3.6rem;
+    text-align: center;
+    font-size: 1.3rem;
+    -webkit-box-shadow: 0 10px 20px -7px #d2d1cd;
+    box-shadow: 0 10px 20px -7px #d2d1cd;
+}
+.sf-edu-yuedu .book-info .btn-wrap .btn:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform-origin: left top;
+    -webkit-transform-origin: left top;
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    border: 1px solid #e6e6e6;
+}
+
+.sf-edu-yuedu .book-info .btn-wrap .btn.white-btn {
+    color: #46b751;
+}
+
+.sf-edu-yuedu .book-info .btn-wrap .btn.green-btn {
+    background: -webkit-gradient(linear,left center,right center,from(#39c862),to(#26b56b));
+    color: #fff;
+}
+
+.sf-edu-yuedu .book-info .btn-wrap .half-wrap {
+    box-sizing: border-box;
+    width: 13rem;
+    float: left;
+}
+.sf-edu-yuedu .book-info .btn-wrap .half-wrap:nth-child(2) {
+    float: right;
+}
+
