@@ -89,8 +89,8 @@
             </ul>
       
             <div class="am-tabs-bd" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+              <form class="am-form" action="add">
               <div class="am-tab-panel am-fade am-active am-in" id="tab1">
-                <form class="am-form">
                 <div class="am-g am-margin-top">
                   <div class="am-u-sm-2 am-u-md-2 am-text-right">所属类别</div>
                   <div class="am-u-sm-10 am-u-md-10">
@@ -101,52 +101,48 @@
                     </select>
                   </div>
                 </div>
-
                 <div class="am-g am-margin-top">
                   <div class="am-u-sm-2 am-u-md-2 am-text-right">
                     封面
                   </div>
                   <div class="am-u-sm-10 am-u-md-4">
-                      <img id='bookcover' src="" />
+                      <img id='bookcover' name='bookcover' src="" />
                   </div>
                 </div>
-  
                 <div class="am-g am-margin-top">
                     <div class="am-u-sm-2 am-u-md-2 am-text-right">
                       ISBN
                     </div>
                     <div class="am-u-sm-10 am-u-md-4">
-                      <input type="text" class="am-input-sm" id='isbn'>
+                      <input type="text" class="am-input-sm" id='isbn' name="isbn">
                     </div>
                     <div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div>
                 </div>
-
                 <div class="am-g am-margin-top">
                   <div class="am-u-sm-2 am-u-md-2 am-text-right">
                     书名
                   </div>
                   <div class="am-u-sm-10 am-u-md-4">
-                    <input type="text" class="am-input-sm" id='bookname'>
+                    <input type="text" class="am-input-sm" id='bookname' name="bookname">
                   </div>
                   <div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div>
                 </div>
 
                 <div class="am-g am-margin-top">
-                    <div class="am-u-sm-2 am-u-md-2 am-text-right">
-                      子标题
-                    </div>
-                    <div class="am-u-sm-10 am-u-md-4  am-u-end col-end">
-                      <input type="text" class="am-input-sm" id="sub_name">
-                    </div>
-                    <div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div>
+                  <div class="am-u-sm-2 am-u-md-2 am-text-right">
+                    子标题
                   </div>
-    
+                  <div class="am-u-sm-10 am-u-md-4  am-u-end col-end">
+                    <input type="text" class="am-input-sm" id="sub_name" name="sub_name">
+                  </div>
+                  <div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div>
+                </div>
                 <div class="am-g am-margin-top">
                   <div class="am-u-sm-2 am-u-md-2 am-text-right">
                     作者
                   </div>
                   <div class="am-u-sm-10 am-u-md-4 am-u-end col-end">
-                    <input type="text" class="am-input-sm" id="author">
+                    <input type="text" class="am-input-sm" id="author" name="author">
                   </div>
                 </div>
 
@@ -158,129 +154,80 @@
                     <form action="" class="am-form am-form-inline">
                       <div class="am-form-group am-form-icon">
                         <i class="am-icon-calendar"></i>
-                        <input type="datetime-local" id="instoragedate" class="am-form-field am-input-sm" placeholder="时间">
+                        <input type="datetime-local" id="instoragedate" name="instoragedate" class="am-form-field am-input-sm" placeholder="时间">
                       </div>
                     </form>
                   </div>
                 </div>
-    
-                <!-- <div class="am-g am-margin-top">
-                  <div class="am-u-sm-2 am-u-md-2 am-text-right">显示状态</div>
-                  <div class="am-u-sm-10 am-u-md-10">
-                    <div class="am-btn-group" data-am-button="">
-                      <label class="am-btn am-btn-default am-btn-xs">
-                        <input type="radio" name="options" id="option1"> 正常
-                      </label>
-                      <label class="am-btn am-btn-default am-btn-xs">
-                        <input type="radio" name="options" id="option2"> 待审核
-                      </label>
-                      <label class="am-btn am-btn-default am-btn-xs">
-                        <input type="radio" name="options" id="option3"> 不显示
-                      </label>
-                    </div>
+              </div>
+              <div class="am-tab-panel am-fade" id="tab2">
+                <div class="am-g am-margin-top">
+                  <div class="am-u-sm-2 am-u-md-2 am-text-right">
+                    出版社
+                  </div>
+                  <div class="am-u-sm-10 am-u-md-4 am-u-end col-end">
+                    <input type="text" class="am-input-sm" id="press" name="press">
                   </div>
                 </div>
-      
                 <div class="am-g am-margin-top">
-                  <div class="am-u-sm-2 am-u-md-2 am-text-right">推荐类型</div>
-                  <div class="am-u-sm-10 am-u-md-10">
-                    <div class="am-btn-group" data-am-button="">
-                      <label class="am-btn am-btn-default am-btn-xs">
-                        <input type="checkbox"> 允许评论
-                      </label>
-                      <label class="am-btn am-btn-default am-btn-xs">
-                        <input type="checkbox"> 置顶
-                      </label>
-                      <label class="am-btn am-btn-default am-btn-xs">
-                        <input type="checkbox"> 推荐
-                      </label>
-                      <label class="am-btn am-btn-default am-btn-xs">
-                        <input type="checkbox"> 热门
-                      </label>
-                      <label class="am-btn am-btn-default am-btn-xs">
-                        <input type="checkbox"> 轮播图
-                      </label>
-                    </div>
+                  <div class="am-u-sm-2 am-u-md-2 am-text-right">
+                    出版日期
                   </div>
-                </div> -->
-              </form>
-              </div>
-      
-              <div class="am-tab-panel am-fade" id="tab2">
-                <form class="am-form">
-                  <div class="am-g am-margin-top">
-                    <div class="am-u-sm-2 am-u-md-2 am-text-right">
-                      出版社
-                    </div>
-                    <div class="am-u-sm-10 am-u-md-4 am-u-end col-end">
-                      <input type="text" class="am-input-sm" id="press">
-                    </div>
+                  <div class="am-u-sm-10 am-u-md-4 am-u-end col-end">
+                    <input type="text" class="am-input-sm" id="publicationdate" name="publicationdate">
                   </div>
-
-                  <div class="am-g am-margin-top">
-                    <div class="am-u-sm-2 am-u-md-2 am-text-right">
-                      出版日期
-                    </div>
-                    <div class="am-u-sm-10 am-u-md-4 am-u-end col-end">
-                      <input type="text" class="am-input-sm" id="publicationdate">
-                    </div>
+                </div>
+                <div class="am-g am-margin-top">
+                  <div class="am-u-sm-2 am-u-md-2 am-text-right">
+                    字数
                   </div>
-                  <div class="am-g am-margin-top">
-                    <div class="am-u-sm-2 am-u-md-2 am-text-right">
-                      字数
-                    </div>
-                    <div class="am-u-sm-10 am-u-md-4 am-u-end col-end">
-                      <input type="text" class="am-input-sm" id="wordcount">
-                    </div>
+                  <div class="am-u-sm-10 am-u-md-4 am-u-end col-end">
+                    <input type="text" class="am-input-sm" id="wordcount" name="wordcount">
                   </div>
-                  <div class="am-g am-margin-top">
-                    <div class="am-u-sm-2 am-u-md-2 am-text-right">
-                      页数
-                    </div>
-                    <div class="am-u-sm-10 am-u-md-4 am-u-end col-end">
-                      <input type="text" class="am-input-sm" id="pagecount">
-                    </div>
+                </div>
+                <div class="am-g am-margin-top">
+                  <div class="am-u-sm-2 am-u-md-2 am-text-right">
+                    页数
                   </div>
-                </form>
+                  <div class="am-u-sm-10 am-u-md-4 am-u-end col-end">
+                    <input type="text" class="am-input-sm" id="pagecount" name="pagecount">
+                  </div>
+                </div>
               </div>
       
               <div class="am-tab-panel am-fade" id="tab3">
-                <form class="am-form">
-                  
-                  <div class="am-g am-margin-top-sm">
-                    <div class="am-u-sm-2 am-u-md-2 am-text-right">
-                      图书简介
-                    </div>
-                    <div class="am-u-sm-10 am-u-md-4 am-u-end">
-                      <textarea rows="8" id="contentintroduction"></textarea>
-                    </div>
+                <div class="am-g am-margin-top-sm">
+                  <div class="am-u-sm-2 am-u-md-2 am-text-right">
+                    图书简介
                   </div>
-
-                  <div class="am-g am-margin-top-sm">
-                    <div class="am-u-sm-2 am-u-md-2 am-text-right">
-                      作者简介
-                    </div>
-                    <div class="am-u-sm-10 am-u-md-4 am-u-end">
-                      <textarea rows="8" id="authorintroduction"></textarea>
-                    </div>
+                  <div class="am-u-sm-10 am-u-md-4 am-u-end">
+                    <textarea rows="8" id="contentintroduction" name="contentintroduction"></textarea>
                   </div>
-
-                  <div class="am-g am-margin-top-sm">
-                    <div class="am-u-sm-2 am-u-md-2 am-text-right">
-                      目录
-                    </div>
-                    <div class="am-u-sm-10 am-u-md-4 am-u-end">
-                      <textarea rows="12" id="catelogue"></textarea>
-                    </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                  <div class="am-u-sm-2 am-u-md-2 am-text-right">
+                    作者简介
                   </div>
-                </form>
+                  <div class="am-u-sm-10 am-u-md-4 am-u-end">
+                    <textarea rows="8" id="authorintroduction" name="authorintroduction"></textarea>
+                  </div>
+                </div>
+                <div class="am-g am-margin-top-sm">
+                  <div class="am-u-sm-2 am-u-md-2 am-text-right">
+                    目录
+                  </div>
+                  <div class="am-u-sm-10 am-u-md-4 am-u-end">
+                    <textarea rows="12" id="catelogue" name="catelogue"></textarea>
+                  </div>
+                </div>
               </div>
       
+              </form>
             </div>
           </div>
       
           <div class="am-margin">
-            <button type="button" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
+            <button type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
             <button type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
           </div>
         </div>
@@ -293,9 +240,6 @@
       <!-- content end -->
       
       </div>
-      
-
-
 
       <a href="#" id="btnscanQr" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" ></a>
 
@@ -394,7 +338,7 @@
             });
           }
         });
-      });      
+      }); 
     </script>
     </body>
     </html>
