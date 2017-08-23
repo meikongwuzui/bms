@@ -4,7 +4,7 @@ function Jssdk(){
     this.getaccess_token=function(){
         //get 请求外网  
         var options = { 
-            hostname: 'https://api.weixin.qq.com', 
+            hostname: 'api.weixin.qq.com', 
             port: 80, 
             path: '/cgi-bin/token?grant_type=client_credential&appid=wxa4e7517fe99f820e&secret=513a774504039197f29fcf486ddb32c5', 
             method: 'GET' 
