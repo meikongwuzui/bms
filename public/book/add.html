@@ -316,9 +316,10 @@
         crossDomain: true,
         success: function(result){
           var access_token = result.access_token;
+          alert('accesstoken:'+access_token);
           $.ajax({
             type: "GET",
-            url: 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token='+access_token+'&type=jsapi',
+            url: "https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="+access_token+"&type=jsapi",
             data: {},
             dataType: 'jsonp',
             crossDomain: true,
