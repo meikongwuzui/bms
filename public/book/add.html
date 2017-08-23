@@ -382,6 +382,15 @@
           success: function (res) {
               var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
               alert(result);
+              $.ajax({
+                type: "GET",
+                url: "https://api.douban.com/v2/book/isbn/"+result.split(',')[1],
+                data: {},
+                dataType: "json",
+                success: function(data){
+                  alert(JSON.stringify(data));
+                }
+            });
           }
         });
       });      
