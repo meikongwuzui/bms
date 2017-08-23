@@ -30,6 +30,7 @@ router.get('/booktype/getlist',function(req,res){
 
 router.get('/book/list',function(req,res){
     if(req.query.t){
+        console.log(req.query.t)
         booktype.getlist(req.query.t,function(result){
             console.log(result);
             res.render('../views/book/list',result);
