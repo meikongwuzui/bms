@@ -39,4 +39,15 @@ router.get('/book/list',function(req,res){
     }
 })
 
+router.get('/book/detail',function(req,res){
+    if(req.query.b){
+        // book.getlist(req.query.b,function(result){
+            res.render('../views/book/detail');
+        // });
+    }
+    else{
+        res.status(200).send('无效的图书');
+    }
+})
+
 module.exports=router;
