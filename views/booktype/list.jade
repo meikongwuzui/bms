@@ -53,7 +53,7 @@ html(lang='en')
                             a(href='##') #{booktypelist[i].name}
                             ul.am-menu-sub.am-collapse.am-avg-sm-2
                                 -for(var j=0;j<booktypelist.length;j++)
-                                    -if(booktypelist[j].parentid==booktypelist[i].pkid)
+                                    -if(booktypelist[j].fkparentid==booktypelist[i].pkid)
                                         li
                                             a(href='##') #{booktypelist[j].name}
                 li
