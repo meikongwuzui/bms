@@ -4,6 +4,7 @@ var weixinApi=require('weixin-api');
 var path=require('path');
 var booktype=require('./sql/booktype');
 var book=require('./sql/book');
+var jssdk=require('./jssdk');
 
 router.get('/',function(req,res){
     res.sendFile(path.join(__dirname,'../public/home.html'));
@@ -48,6 +49,10 @@ router.get('/book/detail',function(req,res){
     else{
         res.status(200).send('无效的图书');
     }
+})
+
+router.get('/weixin/getaccess_token',function(req,res){
+    jssdk.getaccess_token();
 })
 
 module.exports=router;
