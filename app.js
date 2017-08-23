@@ -1,6 +1,7 @@
 var express=require("express");
 var routes=require('./routes/index');
 var WeiXin=require('./routes/weixin');
+var booktype=require('./routes/sql/booktype');
 
 var app=express();
 app.set('views','views');
@@ -12,6 +13,11 @@ app.use('/',routes);
 
 WeiXin.initMsg();
 WeiXin.responseMsg();
+
+booktype.getlist(function(result){
+    app.locals.booktypelist=result;
+})
+
 
 var server=app.listen(80,function(){
     var host=server.address().address;
