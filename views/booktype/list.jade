@@ -49,15 +49,16 @@ html(lang='en')
           -for(var item in booktypelist ){
            -if(item.layer==1){
                 li.am-parent
-                a(href='##') 公司
-                ul.am-menu-sub.am-collapse.am-avg-sm-2
-                    li
-                    a(href='##') 公司
-            -}}
-            li
-              a(href='##') 首页
-            li
-              a(href='##') 个人中心
+                    a(href='##') #{item.name}
+                    ul.am-menu-sub.am-collapse.am-avg-sm-2
+                        li
+                        a(href='##') 公司
+            -}
+        -}
+        //- li
+        //-     a(href='##') 首页
+        //- li
+        //-     a(href='##') 个人中心
     .am-list-news.am-list-news-default(data-am-widget='list_news')
       .am-list-news-bd
         ul.am-list
