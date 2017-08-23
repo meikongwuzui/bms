@@ -55,7 +55,7 @@ html(lang='en')
                                 -for(var j=0;j<booktypelist.length;j++)
                                     -if(booktypelist[j].fkparentid==booktypelist[i].pkid)
                                         li
-                                            a(href='##') #{booktypelist[j].name}
+                                            a(href='./list?t=#{booktypelist[j].pkid}') #{booktypelist[j].name}
                 li
                     a(href='##') 首页
                 li
