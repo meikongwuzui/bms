@@ -6,7 +6,9 @@ function b_book(){
         b_book.pkid,\
         b_book.`name`,\
         b_book.author,\
-        b_book.edition\
+        b_book.edition,\
+        b_book.contentintroduction,\
+        b_book.bookcover\
         FROM\
         b_book\
         RIGHT OUTER JOIN b_type_book_ref ON b_book.pkid=b_type_book_ref.fkbookid\

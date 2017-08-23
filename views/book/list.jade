@@ -64,15 +64,16 @@ html(lang='en')
       .am-list-news-bd
         ul.am-list
           // 缩略图在标题左边
-          li.am-g.am-list-item-desced.am-list-item-thumbed.am-list-item-thumb-left
-            .am-u-sm-4.am-list-thumb
-              a(href='http://www.douban.com/online/11624755/')
-                img(src='http://img3.douban.com/lpic/o637240.jpg', alt='我最喜欢的一张画')
-            .am-u-sm-8.am-list-main
-              h3.am-list-item-hd
-                a(href='http://www.douban.com/online/11624755/') 我最喜欢的一张画
-              .am-list-item-text
-                | 你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，
+          -for book in booklist
+            li.am-g.am-list-item-desced.am-list-item-thumbed.am-list-item-thumb-left
+              .am-u-sm-4.am-list-thumb
+                a(href='./detail')
+                  img(src='#{book.bookcover}', alt='我最喜欢的一张画')
+              .am-u-sm-8.am-list-main
+                h3.am-list-item-hd
+                  a(href='http://www.douban.com/online/11624755/') #{book.name}
+                .am-list-item-text
+                  | #{book.contentintroduction}
     // 在这里编写你的代码
     // [if (gte IE 9)|!(IE)] <!
     script(src='../assets/js/jquery.min.js')
