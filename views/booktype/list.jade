@@ -46,7 +46,7 @@ html(lang='en')
       .am-offcanvas
         .am-offcanvas-bar
           ul.am-menu-nav.am-avg-sm-1
-          -for(var item in #{booktypelist} ){
+          -for(var item in booktypelist ){
            -if(item.layer==1){
                 li.am-parent
                     a(href='##') #{item.name}
