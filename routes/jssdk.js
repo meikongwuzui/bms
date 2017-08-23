@@ -1,4 +1,4 @@
-var http=require('http');  
+var http=require('https');  
 
 function Jssdk(){
     this.getaccess_token=function(){
