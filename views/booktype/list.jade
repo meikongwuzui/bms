@@ -46,14 +46,14 @@ html(lang='en')
       .am-offcanvas
         .am-offcanvas-bar
             ul.am-menu-nav.am-avg-sm-1
-                -var booktypelist=[{name:'a'},{name:'b'}]
-                -for(var item in booktypelist )
-                    -if(item.layer==1){
+                -var booktypelist=[{name:'类型1',layer:1},{name:'类型2',layer:2}];
+                -for(var i=0;i<booktypelist.length;i++)
+                    -if(booktypelist[i].layer==1)
                         li.am-parent
-                            a(href='##') #{item.name}
+                            a(href='##') #{booktypelist[i].name}
                             ul.am-menu-sub.am-collapse.am-avg-sm-2
                                 li
-                                a(href='##') 公司
+                                    a(href='##') 公司
                 li
                     a(href='##') 首页
                 li
