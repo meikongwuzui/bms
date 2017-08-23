@@ -11,7 +11,7 @@ function b_booktype(){
         b_booktype.`status`\
         FROM\
         b_booktype\
-        ',
+        WHERE `status` =0',
         function(result){
             console.log("booktype result:"+result);
             callback(result);
