@@ -47,12 +47,13 @@ html(lang='en')
         .am-offcanvas-bar
           ul.am-menu-nav.am-avg-sm-1
           -for(var item in booktypelist )
-           -if(item.layer==1)
+           -if(item.layer==1){
                 li.am-parent
                 a(href='##') 公司
                 ul.am-menu-sub.am-collapse.am-avg-sm-2
                     li
                     a(href='##') 公司
+            -}
             li
               a(href='##') 首页
             li
