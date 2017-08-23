@@ -28,7 +28,6 @@ router.get('/booktype/getlist',function(req,res){
 })
 
 router.get('/booktype/list',function(req,res){
-    console.log('local='+ app.locals.booktypelist);
     res.render('../views/booktype/list');
 })
 
