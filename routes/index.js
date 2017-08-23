@@ -27,8 +27,13 @@ router.get('/booktype/getlist',function(req,res){
    });
 })
 
-router.get('/booktype/list',function(req,res){
-    res.render('../views/booktype/list');
+router.get('/book/list',function(req,res){
+    if(req.query.t){
+        res.render('../views/book/list');
+    }
+    else{
+        res.status(200).send('无效的图书类别');
+    }
 })
 
 module.exports=router;
