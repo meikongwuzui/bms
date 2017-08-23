@@ -32,7 +32,7 @@ router.get('/book/list',function(req,res){
     if(req.query.t){
         console.log('查询图书列表，参数：图书类别ID:'+req.query.t)
         booktype.detail(req.query.t,function(booktypelist){
-            book.getlist(req.query.t,function(result){
+            book.getlist(req.query.t,function(result,booktypelist){
                 console.log(result);
                 res.render('../views/book/list',{booktypeModel:booktypelist[0], booklist:result});
             });
