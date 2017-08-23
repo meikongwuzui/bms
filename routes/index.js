@@ -3,6 +3,7 @@ var router=express.Router();
 var weixinApi=require('weixin-api');
 var path=require('path');
 var booktype=require('./sql/booktype');
+var book=require('./sql/book');
 
 router.get('/',function(req,res){
     res.sendFile(path.join(__dirname,'../public/home.html'));
@@ -29,7 +30,10 @@ router.get('/booktype/getlist',function(req,res){
 
 router.get('/book/list',function(req,res){
     if(req.query.t){
-        res.render('../views/book/list');
+        booktype.getlist(req.query.t,function(result){
+            console.log(result);
+            res.render('../views/book/list',result);
+        });
     }
     else{
         res.status(200).send('无效的图书类别');
