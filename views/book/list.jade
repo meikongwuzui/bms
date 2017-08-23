@@ -50,7 +50,7 @@ html(lang='en')
                 -for(var i=0;i<booktypelist.length;i++)
                     -if(booktypelist[i].layer==1)
                         li.am-parent
-                            a(href='##') #{booktypelist[i].name}
+                            a(href='./list?t=#{booktypelist[i].pkid}') #{booktypelist[i].name}
                             ul.am-menu-sub.am-collapse.am-avg-sm-2
                                 -for(var j=0;j<booktypelist.length;j++)
                                     -if(booktypelist[j].fkparentid==booktypelist[i].pkid)

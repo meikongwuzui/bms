@@ -13,7 +13,21 @@ function b_booktype(){
         b_booktype\
         WHERE `status` =0',
         function(result){
-            console.log("booktype result:"+result);
+            callback(result);
+        });
+    }
+    this.detail=function(pkid,callback){
+        sqlhelper.query('SELECT\
+        b_booktype.pkid,\
+        b_booktype.fkparentid,\
+        b_booktype.`name`,\
+        b_booktype.layer,\
+        b_booktype.sort,\
+        b_booktype.`status`\
+        FROM\
+        b_booktype\
+        WHERE `pkid` = ' + pkid,
+        function(result){
             callback(result);
         });
     }
