@@ -63,7 +63,7 @@ router.post('/book/add',function(req,res){
    // 在end事件触发后，通过querystring.parse将post解析为真正的POST请求格式，然后向客户端返回。
    req.on('end', function(){    
        console.log(poststr);
-       res.end(util.inspect(poststr));
+       res.end(poststr);
    });
 })
 
