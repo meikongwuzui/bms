@@ -123,7 +123,7 @@
                     书名
                   </div>
                   <div class="am-u-sm-10 am-u-md-4">
-                    <input type="text" class="am-input-sm" id='bookname' name="bookname">
+                    <input type="text" class="am-input-sm" id='name' name="name">
                   </div>
                   <div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div>
                 </div>
@@ -322,7 +322,7 @@
                 success: function(bio){
                   $('#bookcover').attr('src',bio.image);
                   $('#isbn').val(bio.isbn13);
-                  $('#bookname').val(bio.title);
+                  $('#name').val(bio.title);
                   $('#sub_name').val(bio.subtitle);
                   $('#author').val(bio.author);
 
