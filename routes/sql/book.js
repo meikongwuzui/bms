@@ -21,9 +21,9 @@ function b_book(){
         });
     },
     this.insert=function(bio,callback){
-        var para=[bio.name,bio.name,bio.sub_name,bio.isbn,bio.author,bio.press,bio.publicationdate,bio.instoragedate,bio.edition,bio.bookcover,bio.pagecount,bio.wordcount,bio.onstroge,bio.status,bio.point,bio.plandate,bio.recommend,bio.contentintroduction,bio.authorintroduction,bio.catelogue,bio.goodcomment,bio.goodhighlight];
+        var para=[bio.name,bio.sub_name,bio.isbn,bio.author,bio.press,bio.publicationdate,bio.instoragedate,bio.edition,bio.bookcover,bio.pagecount,bio.wordcount,bio.onstroge,bio.status,bio.point,bio.plandate,bio.recommend,bio.contentintroduction,bio.authorintroduction,bio.catelogue,bio.goodcomment,bio.goodhighlight];
         sqlhelper.querywithpara("insert into `b_book`(`name`,`sub_name`,`isbn`,`author`,`press`,`publicationdate`,`instoragedate`,`edition`,`bookcover`,`pagecount`,`wordcount`,`onstroge`,`status`,`point`,`plandate`,`recommend`,`contentintroduction`,`authorintroduction`,`catelogue`,`goodcomment`,`goodhighlight`)"+
-        "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         para,
         function(result){
             console.log("addbook result:"+result);
