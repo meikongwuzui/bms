@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.post('/book/add',function(req,res){
     var bookinfo=req.body;
-    book.insert(book,function(res){
+    book.insert(bookinfo,function(res){
         res.send(req.body);
     });
 });
