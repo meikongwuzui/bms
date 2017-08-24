@@ -29,6 +29,14 @@ function b_book(){
             console.log("addbook result:"+result);
             callback(result);
         });
+    },
+    this.isexist=function(bio,callback){
+        var para=[bio.isbn];
+        sqlhelper.querywithpara("SELECT COUNT(*) FROM `b_book` WHERE `isbn` = '?'",
+        para,
+        function(result){
+            callback(result>0);
+        });
     }
 }
 

@@ -17,8 +17,14 @@ app.use(bodyParser.urlencoded({
 }));
 app.post('/book/add',function(req,res){
     var bookinfo=req.body;
-    book.insert(bookinfo,function(result){
-        res.send(result);
+    book.isexist(bookinfo,function(resul){
+        if(resul){
+            res.send('{"status":false,"msg":"book is exist"');
+        }else{
+            book.insert(bookinfo,function(result){
+                res.send(result);
+            });
+        }
     });
 });
 
