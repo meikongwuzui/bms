@@ -18,8 +18,8 @@ app.use(bodyParser.urlencoded({
 app.post('/book/add',function(req,res){
     var bookinfo=req.body;
     console.log(bookinfo);
-    book.insert(bookinfo,function(res){
-        res.send(req.body);
+    book.insert(bookinfo,function(result){
+        res.send(result);
     });
 });
 
