@@ -2,12 +2,22 @@ var express=require("express");
 var routes=require('./routes/index');
 var WeiXin=require('./routes/weixin');
 var booktype=require('./routes/sql/booktype');
+var bodyParser = require('body-parser');
 
 var app=express();
 app.set('views','views');
 app.set('view engine','jade');
 
 app.use(express.static('public'));
+
+app.use(bodyParser.json({limit: '1mb'}));  //这里指定参数使用 json 格式
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.post('/book/add',function(req,res){
+    console.log(req.body);
+    res.send(req.body);
+});
 
 app.use('/',routes);
 
