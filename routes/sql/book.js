@@ -20,10 +20,10 @@ function b_book(){
             callback(result);
         });
     },
-    this.insert=function(bookinfo,callback){
-        var para=[];
-        sqlhelper.query("insert into `b_book`(`name`,`sub_name`,`isbn`,`author`,`press`,`publicationdate`,`instoragedate`,`edition`,`bookcover`,`pagecount`,`wordcount`,`onstroge`,`status`,`point`,`plandate`,`recommend`,`contentintroduction`,`authorintroduction`,`catelogue`,`goodcomment`,`goodhighlight`)"+
-        "values('好书4',null,'','',null,null,null,null,'https://img3.doubanio.com/lpic/s11311564.jpg',null,null,'0',null,null,null,'','jianjie',null,null,null,null)",
+    this.insert=function(bio,callback){
+        var para=[bio.name,bio.namebio.sub_name,bio.isbn,bio.author,bio.press,bio.publicationdate,bio.instoragedate,bio.edition,bio.bookcover,bio.pagecount,bio.wordcount,bio.onstroge,bio.status,bio.point,bio.plandate,bio.recommend,bio.contentintroduction,bio.authorintroduction,bio.catelogue,bio.goodcomment,bio.goodhighlight];
+        sqlhelper.querywithpara("insert into `b_book`(`name`,`sub_name`,`isbn`,`author`,`press`,`publicationdate`,`instoragedate`,`edition`,`bookcover`,`pagecount`,`wordcount`,`onstroge`,`status`,`point`,`plandate`,`recommend`,`contentintroduction`,`authorintroduction`,`catelogue`,`goodcomment`,`goodhighlight`)"+
+        "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         para,
         function(result){
             console.log("addbook result:"+result);
