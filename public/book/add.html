@@ -71,7 +71,7 @@
           </header>
     <!--在这里编写你的代码-->
     <div class="am-cf admin-main">
-        <form class="am-form" action="add" method="post" >
+        
       <!-- content start -->
       <div class="admin-content">
         <div class="admin-content-body">
@@ -89,7 +89,7 @@
             </ul>
       
             <div class="am-tabs-bd" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-              
+              <form class="am-form" id='form-bookinfo' method="post" >
               <div class="am-tab-panel am-fade am-active am-in" id="tab1">
                 <div class="am-g am-margin-top">
                   <div class="am-u-sm-2 am-u-md-2 am-text-right">所属类别</div>
@@ -222,12 +222,13 @@
                 </div>
               </div>
       
+            </form>
               
             </div>
           </div>
       
           <div class="am-margin">
-            <button type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
+            <button type="button" id="btnsubimt" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
             <button type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
           </div>
         </div>
@@ -238,7 +239,7 @@
         </footer>
       </div>
       <!-- content end -->
-    </form>
+    
       </div>
 
       <a href="#" id="btnscanQr" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" ></a>
@@ -299,10 +300,11 @@
 
             }
           });
+
+          $('#btnsubimt').on('click',function(){
+            addbook();
+          });
       });
-    </script>
-    <script>
-      
     </script>
     <script>
       $('#btnscanQr').click(function(){
@@ -339,6 +341,21 @@
           }
         });
       }); 
+    </script>
+    <script>
+      function addbook(){
+        $.ajax({
+              type: "POST",
+              url: "add",
+              data:  $('#form-bookinfo').serialize() ,
+              dataType: 'json',
+              success: function(res){
+                if(res.status){
+                  alert('入库成功');
+                }
+              }
+        });
+      }
     </script>
     </body>
     </html>
