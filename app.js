@@ -2,6 +2,7 @@ var express=require("express");
 var routes=require('./routes/index');
 var WeiXin=require('./routes/weixin');
 var booktype=require('./routes/sql/booktype');
+var book=require('./routes/sql/book');
 var bodyParser = require('body-parser');
 
 var app=express();
@@ -15,8 +16,10 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.post('/book/add',function(req,res){
-    console.log(req.body);
-    res.send(req.body);
+    var bookinfo=req.body;
+    book.insert(book,function(res){
+        res.send(req.body);
+    });
 });
 
 app.use('/',routes);

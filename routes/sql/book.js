@@ -19,6 +19,15 @@ function b_book(){
             console.log("booktype result:"+result);
             callback(result);
         });
+    },
+    this.insert=function(bookinfo,callback){
+        sqlhelper.query("insert into `b_book`(`name`,`sub_name`,`isbn`,`author`,`press`,`publicationdate`,`instoragedate`,`edition`,`bookcover`,`pagecount`,`wordcount`,`onstroge`,`status`,`point`,`plandate`,`recommend`,`contentintroduction`,`authorintroduction`,`catelogue`,`goodcomment`,`goodhighlight`)"+
+        "values('好书4',null,'','',null,null,null,null,'https://img3.doubanio.com/lpic/s11311564.jpg',null,null,'0',null,null,null,'','jianjie',null,null,null,null)",
+        bookinfo,
+        function(result){
+            console.log("addbook result:"+result);
+            callback(result);
+        });
     }
 }
 
