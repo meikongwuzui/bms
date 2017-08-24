@@ -349,9 +349,12 @@
               data:  $('#form-bookinfo').serialize() ,
               dataType: 'json',
               success: function(res){
-                //if(res.status){
+                if(res.affectedRows>0){
                   alert('入库成功');
-                //}
+                }
+                else{
+                  alert('入库失败');
+                }
               }
         });
       }
