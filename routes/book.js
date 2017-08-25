@@ -30,9 +30,10 @@ router.get('/booktype/getlist',function(req,res){
  
  router.get('/book/detail',function(req,res){
      if(req.query.b){
-         // book.getlist(req.query.b,function(result){
-             res.render('../views/book/detail');
-         // });
+         book.detail(req.query.b,function(result){
+             console.log('book tail'+result);
+             res.render('../views/book/detail',{book:result});
+         });
      }
      else{
          res.status(200).send('无效的图书');

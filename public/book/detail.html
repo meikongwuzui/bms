@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" class="sf-edu-yuedu" style="font-size: 11.7188px;">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <title>图书信息</title>
 
     <!-- Set render engine for 360 browser -->
@@ -31,107 +32,110 @@
 
     <link rel="stylesheet" href="../assets/css/amazeui.min.css">
     <link rel="stylesheet" href="../assets/css/app.css">
-    <link rel="stylesheet" href="../css/book.css">
+    <link rel="stylesheet" href="../css/booktype.css">
     <style>
-        .book {
-            width: 78%;
-            height: auto;
-            padding-left: 11%;
+        li {
+            list-style-type: none;
+        }
+        .book-cover {
+            width: 9rem;
+            height: 12rem;
+        }
+        .info {
+            padding-left: 11rem;
+            line-height: 2rem;
+            font-size: 1.3rem;
+            color: #a4a4a4;
+        }
+        .info .title {
+            max-height: 4.8rem;
+            line-height: 2.4rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #5b5b5b;
+            white-space: normal;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
     </style>
 </head>
-
 <body>
-    <header data-am-widget="header" class="am-header am-header-default">
-        <div class="am-header-left am-header-nav">
-            <a href="#left-link" class="">
-                <span class="am-header-nav-title">
-                  首页
-                </span>
-  
-                  <i class="am-header-icon am-icon-home"></i>
-            </a>
-        </div>
+    <header class="am-topbar am-topbar-fixed-top">
+        <div class="am-container">
+            <h1 class="am-topbar-brand">
+                <a href="#">蓝剑图书馆</a>
+            </h1>
 
-        <h1 class="am-header-title">
-            言情小说
-        </h1>
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only am-collapsed" data-am-collapse="{target: '#collapse-head'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
 
-        <div class="am-header-right am-header-nav">
-            <a href="#right-link" class="">
-                <span class="am-header-nav-title">
-                  分类
-                </span>
-  
-                  <i class="am-header-icon am-icon-bars"></i>
-            </a>
+            <div class="am-topbar-collapse am-collapse" id="collapse-head" style="height: 20px;">
+                <ul class="am-nav am-nav-pills am-topbar-nav">
+                    <li><a href="../home.html">首页</a></li>
+                    <li class="am-active"><a href="#">图书清单</a></li>
+                </ul>
+                <div class="am-topbar-right">
+                    <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm"><span class="am-icon-pencil"></span> 注册</button>
+                </div>
+                <div class="am-topbar-right">
+                    <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> 登录</button>
+                </div>
+            </div>
         </div>
     </header>
-
-
-    <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
-        <a href="javascript: void(0)" class="am-menu-toggle">
-            <!-- <i class="am-menu-toggle-icon am-icon-bars"></i> -->
-        </a>
-
-        <div class="am-offcanvas">
-            <div class="am-offcanvas-bar">
-
-                <ul class="am-menu-nav am-avg-sm-1">
-                    <li class="am-parent">
-                        <a href="##" class="">公司</a>
-                        <ul class="am-menu-sub am-collapse  am-avg-sm-2 ">
-                            <li class="">
-                                <a href="##" class="">公司</a>
-                            </li>
+    <!--在这里编写你的代码-->
+    <div class="am-cf admin-main">
+        <form class="am-form" id='form-bookinfo' data-am-validator>
+            <!-- content start -->
+            <div class="admin-content">
+                <div class="admin-content-body">
+                    <ul class="am-list">
+                        <!--缩略图在标题左边-->
+                        <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
+                            <div class="am-u-sm-4 am-list-thumb">
+                                <a href="http://www.douban.com/online/11614662/" class="">
+                        <img src="http://img5.douban.com/lpic/o636459.jpg" class="book-cover" alt="我很囧，！"/>
+                        </a>
+                            </div>
+                            <div class="info">
+                                <div class="title">就说你和他们一样</div>
+                                <div class="author">[美]乌文·阿克潘</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div style="text-align:center">
+                        <button type="button" class="am-btn am-btn-success am-radius" style="width:46%">借阅</button>
+                        <button type="button" class="am-btn am-btn-warning am-radius" style="width:46%">收藏</button>
+                    </div>
+                    <hr>
+                    <div class="am-tabs am-margin" data-am-tabs="">
+                        <ul class="am-tabs-nav am-nav am-nav-tabs">
+                            <li class="am-active"><a href="#tab1">简介</a></li>
+                            <li class=""><a href="#tab2">目录</a></li>
+                            <li class=""><a href="#tab3">评论</a></li>
                         </ul>
-                    </li>
-                    <li class="">
-                        <a href="##" class="">首页</a>
-                    </li>
-                    <li class="">
-                        <a href="##" class="">个人中心</a>
-                    </li>
-                </ul>
-
-            </div>
-        </div>
-    </nav>
-
-
-
-    <div class="book-info ">
-        <div class="info-wrap">
-            <a href="https://yuedu.baidu.com/view/cb75c6aff12d2af90342e628?app=&amp;ala_sign=">
-                        <img class="book-cover" src="https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/doc/abpic/item/2e2eb9389b504fc2a82687e7e3dde71191ef6dd2.jpg">
-            </a>
-
-            <div class="info">
-                <div class="title">陪你到时光尽头</div>
-                <div class="author">沈南乔</div>
-                <div class="rating-wrap">
-                    <i class="score-view ">
-                        <i class="score-shade" style="width: 86%">
-                            <i class="score-fill"></i>
-                        </i>
-                    </i>
-
-                    8.6分
+                        <div class="am-tabs-bd" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                            <div class="am-tab-panel am-fade am-active am-in" id="tab1">
+                                <p></p>
+                            </div>
+                            <div class="am-tab-panel am-fade" id="tab2">
+                                <p></p>
+                            </div>
+                            <div class="am-tab-panel am-fade" id="tab3">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="reader-num">28391人在读</div>
+                <footer class="admin-content-footer">
+                    <hr>
+                    <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+                </footer>
             </div>
-        </div>
-        <div class="btn-wrap" style="    margin-top: 15px;">
-            <div class="half-wrap">
-                <div class="read-with-ad-btn btn white-btn">开始阅读</div>
-            </div>
-            <div class="half-wrap">
-                <div class="download-btn btn green-btn">免费下载</div>
-            </div>
-        </div>
+            <!-- content end -->
+        </form>
     </div>
-
-
     <!--在这里编写你的代码-->
 
     <!--[if (gte IE 9)|!(IE)]><!-->
@@ -143,6 +147,7 @@
     <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
     <![endif]-->
     <script src="../assets/js/amazeui.min.js"></script>
+    
 </body>
 
 </html>

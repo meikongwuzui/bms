@@ -51,6 +51,18 @@ function b_book(){
         function(result){
             callback(result[0].count>0);
         });
+    },
+    this.detail=function(id,callback){
+        var para=[id];
+        sqlhelper.querywithpara("SELECT\
+        *\
+        FROM\
+        b_book\
+        WHERE pkid=?",
+        para,
+        function(result){
+            callback(result[0]);
+        });
     }
 }
 
