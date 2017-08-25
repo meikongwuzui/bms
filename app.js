@@ -19,10 +19,10 @@ app.post('/book/add',function(req,res){
     var bookinfo=req.body;
     book.isexist(bookinfo,function(resul){
         if(resul){
-            res.send('{"status":false,"msg":"book is exist"');
+            res.send('{"status":false,"msg":"book is exist"}');
         }else{
             book.insert(bookinfo,function(result){
-                res.status(200).send('{"status":true,"msg":"入库成功"');
+                res.status(200).send('{"status":true,"msg":"入库成功"}');
             });
         }
     });
