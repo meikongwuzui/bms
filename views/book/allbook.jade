@@ -26,6 +26,7 @@ html(lang='en')
     link(rel='stylesheet', href='../css/home.css')
     style.
       .book{width: 78%;    height: auto;    padding-left: 11%;}
+      .admin-menu {position: fixed;  z-index: 999;  bottom: 40px;  right: 20px;}
   body
     header.am-topbar.am-topbar-fixed-top
       .am-container
@@ -83,7 +84,7 @@ html(lang='en')
                     a(href='http://www.douban.com/online/11624755/') #{book.name}
                   .am-list-item-text
                     | #{book.typename}
-    a#btnscanQr.am-icon-btn.am-icon-th-list.am-show-sm-only.admin-menu(href='#')
+    a.am-icon-btn.am-icon-th-list.am-show-sm-only.admin-menu(href='#')
     // 在这里编写你的代码
     // [if (gte IE 9)|!(IE)] <!
     script(src='../assets/js/jquery.min.js')
