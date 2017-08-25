@@ -6,7 +6,6 @@ function user(){
         sqlhelper.querywithpara("SELECT * FROM u_user WHERE  account = ? AND pwd = ? ",
         para,
         function(result){
-            console.log(result);
             callback(result);
         });
     }
