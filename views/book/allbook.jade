@@ -81,7 +81,7 @@ html(lang='en')
                     img(src='#{book.bookcover}', alt='#{book.name}')
                 .am-u-sm-8.am-list-main
                   h3.am-list-item-hd
-                    a(href='http://www.douban.com/online/11624755/') #{book.name}
+                    a(href='./detail?b=#{book.pkid}') #{book.name}
                   .am-list-item-text
                     | #{book.typename}
     a.am-icon-btn.am-icon-th-list.am-show-sm-only.admin-menu(href='#')
