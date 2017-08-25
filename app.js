@@ -18,8 +18,7 @@ app.use(bodyParser.urlencoded({
 app.post('/book/add',function(req,res){
     var bookinfo=req.body;
     book.isexist(bookinfo,function(resul){
-        console.log(resul);
-        if(resul > 0){
+        if(resul){
             res.send('{"status":false,"msg":"book is exist"');
         }else{
             book.insert(bookinfo,function(result){
