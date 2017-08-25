@@ -10,9 +10,9 @@ router.get('/',function(req,res){
 });
 
 //图书类型
-router.use('/booktype',require('./book'));
+router.use('/booktype/*',require('./book'));
 //图书
-router.use('/book',require('./book'));
+router.use('/book/*',require('./book'));
 //微信消息接口 get
 router.get('/api',function(req,res){
     if(weixinApi.checkSignature(req)){
