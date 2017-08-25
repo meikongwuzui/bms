@@ -36,7 +36,8 @@ function b_book(){
         para,
         function(result){
             console.log('sql result:'+ JSON.stringify( result));
-            callback(result.count>0);
+            console.log('sql result:'+ JSON.stringify( result)[0].count);
+            callback(JSON.stringify( result)[0].count>0);
         });
     }
 }
