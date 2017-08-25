@@ -1,6 +1,5 @@
 var mysql=require('mysql');
 
-
 function SQLHelper(){
     this.query=function(sqlstr,callback){
         
@@ -17,7 +16,6 @@ function SQLHelper(){
                 console.log('[connection conn]-'+err);
                 return;
             }
-            console.log('[connection conn] succeed!');
         });
         
         connection.query(sqlstr,function(err,result){
@@ -33,7 +31,6 @@ function SQLHelper(){
                 console.log('[connection end]-'+err);
                 return;
             }
-            console.log('[connection end] succeed!');
         })
     },
     this.querywithpara=function(sqlstr,para,callback){
@@ -51,7 +48,6 @@ function SQLHelper(){
                 console.log('[connection conn]-'+err);
                 return;
             }
-            console.log('[connection conn] succeed!');
         });
         
         connection.query(sqlstr,para,function(err,result){
@@ -67,7 +63,6 @@ function SQLHelper(){
                 console.log('[connection end]-'+err);
                 return;
             }
-            console.log('[connection end] succeed!');
         })
     }
 }

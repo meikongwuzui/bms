@@ -106,7 +106,8 @@
                     封面
                   </div>
                   <div class="am-u-sm-10 am-u-md-4">
-                      <img id='bookcover' name='bookcover' src="" />
+                      <input type="hidden" id="bookcovervalue" name="bookcover">
+                      <img id='bookcover' src="" />
                   </div>
                 </div>
                 <div class="am-g am-margin-top">
@@ -328,6 +329,7 @@
                 crossDomain: true,
                 success: function(bio){
                   $('#bookcover').attr('src',bio.image);
+                  $('#bookcovervalue').val(bio.image);
                   $('#isbn').val(bio.isbn13);
                   $('#name').val(bio.title);
                   $('#sub_name').val(bio.subtitle);

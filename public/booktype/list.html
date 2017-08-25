@@ -106,6 +106,14 @@
           success:function(data){
             var list=data;
             var str="";
+
+            str+="<dt>所有类别</dt>"
+                str+="<dd>"
+                    str+="<li>"+
+                            "<a href='/book/allbook'>所有图书</a>\
+                          </li>"
+                str+="</dd>";
+
             for(var i=0;i<list.length;i++){
               if(list[i].layer==1){
                 str+="<dt>"+ list[i].name+ "</dt>"

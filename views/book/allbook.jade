@@ -1,0 +1,86 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title 图书列表
+    // Set render engine for 360 browser
+    meta(name='renderer', content='webkit')
+    // No Baidu Siteapp
+    meta(http-equiv='Cache-Control', content='no-siteapp')
+    link(rel='icon', type='image/png', href='../assets/i/favicon.png')
+    // Add to homescreen for Chrome on Android
+    meta(name='mobile-web-app-capable', content='yes')
+    link(rel='icon', sizes='192x192', href='../assets/i/app-icon72x72@2x.png')
+    // Add to homescreen for Safari on iOS
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black')
+    meta(name='apple-mobile-web-app-title', content='Amaze UI')
+    link(rel='apple-touch-icon-precomposed', href='../assets/i/app-icon72x72@2x.png')
+    // Tile icon for Win8 (144x144 + tile color)
+    meta(name='msapplication-TileImage', content='../assets/i/app-icon72x72@2x.png')
+    meta(name='msapplication-TileColor', content='#0e90d2')
+    link(rel='stylesheet', href='../assets/css/amazeui.min.css')
+    link(rel='stylesheet', href='../assets/css/app.css')
+    link(rel='stylesheet', href='../css/home.css')
+    style.
+      .book{width: 78%;    height: auto;    padding-left: 11%;}
+  body
+    header.am-header.am-header-default(data-am-widget='header')
+      .am-header-left.am-header-nav
+        a(href='#left-link')
+          span.am-header-nav-title
+            | 首页
+          i.am-header-icon.am-icon-home
+      h1.am-header-title
+        | 所有图书
+      .am-header-right.am-header-nav
+        a(href='#right-link')
+          span.am-header-nav-title
+            | 分类
+          i.am-header-icon.am-icon-bars
+    nav.am-menu.am-menu-offcanvas1(data-am-widget='menu', data-am-menu-offcanvas='')
+      a.am-menu-toggle(href='javascript: void(0)')
+        // <i class="am-menu-toggle-icon am-icon-bars"></i>
+      .am-offcanvas
+        .am-offcanvas-bar
+            ul.am-menu-nav.am-avg-sm-1
+                //- -var booktypelist=[{name:'类型1',layer:1,pkid:1},{name:'类型2',layer:2,parentid:1}];
+                -for(var i=0;i<booktypelist.length;i++)
+                    -if(booktypelist[i].layer==1)
+                        li.am-parent
+                            a(href='./list?t=#{booktypelist[i].pkid}') #{booktypelist[i].name}
+                            ul.am-menu-sub.am-collapse.am-avg-sm-2
+                                -for(var j=0;j<booktypelist.length;j++)
+                                    -if(booktypelist[j].fkparentid==booktypelist[i].pkid)
+                                        li
+                                            a(href='./list?t=#{booktypelist[j].pkid}') #{booktypelist[j].name}
+                li
+                    a(href='##') 首页
+                li
+                    a(href='##') 个人中心
+    .am-list-news.am-list-news-default(data-am-widget='list_news')
+      .am-list-news-bd
+        ul.am-list
+          // 缩略图在标题左边
+          -for book in booklist
+            -if(book.pkid&&book.pkid>0)
+              li.am-g.am-list-item-desced.am-list-item-thumbed.am-list-item-thumb-left
+                .am-u-sm-4.am-list-thumb
+                  a(href='./detail?b=#{book.pkid}')
+                    img(src='#{book.bookcover}', alt='#{book.name}')
+                .am-u-sm-8.am-list-main
+                  h3.am-list-item-hd
+                    a(href='http://www.douban.com/online/11624755/') #{book.name}
+                  .am-list-item-text
+                    | #{book.typename}
+    // 在这里编写你的代码
+    // [if (gte IE 9)|!(IE)] <!
+    script(src='../assets/js/jquery.min.js')
+    // <![endif]
+    //if lte IE 8 
+      script(src='http://libs.baidu.com/jquery/1.11.3/jquery.min.js')
+      script(src='http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js')
+      script(src='assets/js/amazeui.ie8polyfill.min.js')
+    script(src='../assets/js/amazeui.min.js')

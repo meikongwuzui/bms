@@ -10,6 +10,13 @@ router.get('/booktype/getlist',function(req,res){
     });
  })
  
+ //所有图书
+ router.get('/book/allbook',function(req,res){
+    book.getallbook(function(result){
+        res.render('../views/book/allbook',{booklist:result});
+    });
+})
+//根据图书分类ID 获取图书列表
  router.get('/book/list',function(req,res){
      if(req.query.t){
          book.getlist(req.query.t,function(result){
