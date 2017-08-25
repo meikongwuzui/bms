@@ -37,7 +37,7 @@
       .admin-menu {
         position: fixed;
         z-index: 10;
-        top: 60px;
+        bottom: 40px;
         right: 20px;
       }
       [class*=am-u-] {
@@ -71,7 +71,7 @@
           </header>
     <!--在这里编写你的代码-->
     <div class="am-cf admin-main">
-      <form class="am-form" id='form-bookinfo' method="post" >
+      <form class="am-form" id='form-bookinfo' data-am-validator>
       <!-- content start -->
       <div class="admin-content">
         <div class="admin-content-body">
@@ -115,7 +115,7 @@
                     </div>
                     <div class="am-u-sm-10 am-u-md-4">
                       <input type="hidden" name="onstroge" value="1">
-                      <input type="text" class="am-input-sm" id='isbn' name="isbn">
+                      <input type="text" class="am-input-sm" minlength="9" required id='isbn' name="isbn">
                     </div>
                     <div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div>
                 </div>
@@ -124,7 +124,7 @@
                     书名
                   </div>
                   <div class="am-u-sm-10 am-u-md-4">
-                    <input type="text" class="am-input-sm" id='name' name="name">
+                    <input type="text" class="am-input-sm" minlength="1" required id='name' name="name">
                   </div>
                   <div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div>
                 </div>
@@ -301,7 +301,13 @@
           });
 
           $('#btnsubimt').on('click',function(){
-            addbook();
+            // 处理异步验证结果
+            $.when($('#form-bookinfo').validator('isFormValid')).then(function(isValidate) {
+              if(isValidate){
+                addbook();
+              }else{
+              }
+            });
           });
       });
     </script>
@@ -349,11 +355,11 @@
               data:  $('#form-bookinfo').serialize() ,
               dataType: 'json',
               success: function(res){
-                if(res.affectedRows>0){
+                if(res.status){
                   alert('入库成功');
                 }
                 else{
-                  alert('入库失败');
+                  alert(res.msg);
                 }
               }
         });
