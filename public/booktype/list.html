@@ -121,7 +121,7 @@
                 for(var j=0;j<list.length;j++){
                   if(list[i].pkid==list[j].fkparentid){
                     str+="<li>"+
-                            "<a href='/book/list?t="+list[j].pkid+"'>"+list[j].name+"</a>\
+                            "<a href='/book/list?t="+list[j].pkid+"'>"+list[j].name+"("+list[j].count+")"+"</a>\
                           </li>"
                   }
                 }

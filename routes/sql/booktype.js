@@ -8,10 +8,20 @@ function b_booktype(){
         b_booktype.`name`,\
         b_booktype.layer,\
         b_booktype.sort,\
-        b_booktype.`status`\
-        FROM\
+        b_booktype.`status`,\
+        COUNT(b.fkbookid) count\
+    FROM\
         b_booktype\
-        WHERE `status` =0',
+    LEFT JOIN b_type_book_ref b ON b_booktype.pkid = b.fkbooktypeid\
+    WHERE\
+        b_booktype.`status` = 0\
+    GROUP BY\
+        b_booktype.pkid,\
+        b_booktype.fkparentid,\
+        b_booktype.`name`,\
+        b_booktype.layer,\
+        b_booktype.sort,\
+        b_booktype.`status`',
         function(result){
             callback(result);
         });
