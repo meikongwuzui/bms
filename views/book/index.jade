@@ -1,0 +1,124 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title 主页
+    // Set render engine for 360 browser
+    meta(name='renderer', content='webkit')
+    // No Baidu Siteapp
+    meta(http-equiv='Cache-Control', content='no-siteapp')
+    link(rel='icon', type='image/png', href='../assets/i/favicon.png')
+    // Add to homescreen for Chrome on Android
+    meta(name='mobile-web-app-capable', content='yes')
+    link(rel='icon', sizes='192x192', href='../assets/i/app-icon72x72@2x.png')
+    // Add to homescreen for Safari on iOS
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black')
+    meta(name='apple-mobile-web-app-title', content='Amaze UI')
+    link(rel='apple-touch-icon-precomposed', href='../assets/i/app-icon72x72@2x.png')
+    // Tile icon for Win8 (144x144 + tile color)
+    meta(name='msapplication-TileImage', content='../assets/i/app-icon72x72@2x.png')
+    meta(name='msapplication-TileColor', content='#0e90d2')
+    link(rel='stylesheet', href='../assets/css/amazeui.min.css')
+    link(rel='stylesheet', href='../assets/css/app.css')
+    link(rel='stylesheet', href='../css/home.css')
+    style.
+      .book{width: 78%;    height: auto;    padding-left: 11%;}
+  body
+    header.am-topbar.am-topbar-fixed-top
+      .am-container
+        h1.am-topbar-brand
+          a(href='#') 蓝剑图书馆
+        button.am-topbar-btn.am-topbar-toggle.am-btn.am-btn-sm.am-btn-secondary.am-show-sm-only.am-collapsed(data-am-collapse="{target: '#collapse-head'}")
+          span.am-sr-only 导航切换
+          span.am-icon-bars
+        #collapse-head.am-topbar-collapse.am-collapse(style='height: 20px;')
+          ul.am-nav.am-nav-pills.am-topbar-nav
+            li
+              a(href='../home.html') 首页
+            li.am-active
+              a(href='#') 图书清单
+            //
+              <li class="am-dropdown" data-am-dropdown="">
+              <a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
+              榜单 <span class="am-icon-caret-down"></span>
+              </a>
+              <ul class="am-dropdown-content">
+              <li><a href="#">借阅排行榜</a></li>
+              <li><a href="#">热门评论榜</a></li>
+              <li><a href="#">3. 文字排版</a></li>
+              <li><a href="#">4. 网格系统</a></li>
+              </ul>
+              </li>
+          .am-topbar-right
+            button.am-btn.am-btn-secondary.am-topbar-btn.am-btn-sm
+              span.am-icon-pencil
+              |  注册
+          .am-topbar-right
+            button.am-btn.am-btn-primary.am-topbar-btn.am-btn-sm
+              span.am-icon-user
+              |  登录
+    .am-slider.am-slider-a1(data-am-widget='slider', data-am-slider='{"directionNav":false}')
+      ul.am-slides
+        li
+          img(src='../images/bannerl_1.jpg')
+        li
+          img(src='../images/bannerl_2.jpg')
+    div(style='background:#f6f5ee')
+      h3(style='text-align:center;    margin: 0 0 0 0; padding-top:10px;  font-weight: 500;') 热门推荐
+      ul.am-gallery.am-avg-sm-3.am-avg-md-3.am-avg-lg-4.am-gallery-default(data-am-widget='gallery', data-am-gallery='{ pureview: true }')
+        li
+          div
+            a(href='http://s.amazeui.org/media/i/demos/bing-1.jpg')
+              img.book(src='../images/book1.jpg', alt='远方 有一个地方 那里种有我们的梦想')
+              h3.am-gallery-title Linux从入门到放弃
+              .am-gallery-desc 作者：程序员
+        li
+          div
+            a(href='http://s.amazeui.org/media/i/demos/bing-2.jpg')
+              img.book(src='../images/book1.jpg', alt='某天 也许会相遇 相遇在这个好地方')
+              h3.am-gallery-title 颈椎病康复指南
+              .am-gallery-desc 作者：IT民工
+        li
+          div
+            a(href='http://s.amazeui.org/media/i/demos/bing-3.jpg')
+              img.book(src='../images/book1.jpg', alt='不要太担心 只因为我相信')
+              h3.am-gallery-title 活着
+              .am-gallery-desc 作者：IT工程师
+      h3(style='text-align:center;    margin: 0 0 0 0; padding-top:10px;  font-weight: 500;') 最新上架
+      ul.am-gallery.am-avg-sm-3.am-avg-md-3.am-avg-lg-4.am-gallery-default(data-am-widget='gallery', data-am-gallery='{ pureview: true }')
+        li
+          div
+            a(href='http://s.amazeui.org/media/i/demos/bing-1.jpg')
+              img.book(src='../images/book1.jpg', alt='远方 有一个地方 那里种有我们的梦想')
+              h3.am-gallery-title Linux从入门到放弃
+              .am-gallery-desc 作者：程序员
+        li
+          div
+            a(href='http://s.amazeui.org/media/i/demos/bing-2.jpg')
+              img.book(src='../images/book1.jpg', alt='某天 也许会相遇 相遇在这个好地方')
+              h3.am-gallery-title 颈椎病康复指南
+              .am-gallery-desc 作者：IT民工
+        li
+          div
+            a(href='http://s.amazeui.org/media/i/demos/bing-3.jpg')
+              img.book(src='../images/book1.jpg', alt='不要太担心 只因为我相信')
+              h3.am-gallery-title 活着
+              .am-gallery-desc 作者：IT工程师
+    div(style='    margin: 11px 10px 10px 10px;')
+      a(href='../booktype/list.html')
+        img(src='../images/column1.jpg', alt='', style='width:100%;')
+    div(style='    margin: 0 10px 10px 10px;')
+      a(href='')
+        img(src='../images/column2.jpg', alt='', style='width:100%;')
+    // 在这里编写你的代码
+    // [if (gte IE 9)|!(IE)] <!
+    script(src='../assets/js/jquery.min.js')
+    // <![endif]
+    //if lte IE 8 
+      script(src='http://libs.baidu.com/jquery/1.11.3/jquery.min.js')
+      script(src='http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js')
+      script(src='assets/js/amazeui.ie8polyfill.min.js')
+    script(src='../assets/js/amazeui.min.js')
