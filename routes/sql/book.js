@@ -32,7 +32,7 @@ function b_book(){
     },
     this.isexist=function(bio,callback){
         var para=[bio.isbn];
-        sqlhelper.querywithpara("SELECT COUNT(*) FROM `b_book` WHERE `isbn` = '?'  ",
+        sqlhelper.querywithpara("SELECT COUNT(*) FROM `b_book` WHERE `isbn` = ? ;  ",
         para,
         function(result){
             callback(result>0);
