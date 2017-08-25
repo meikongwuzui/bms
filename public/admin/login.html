@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Amaze UI Admin index Examples</title>
+    <title>登陆</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
     <link rel="stylesheet" href="assets/css/app.css">
     <script src="assets/js/jquery.min.js"></script>
-
 </head>
 
 <body data-type="login">
@@ -40,39 +39,20 @@
         <div class="tpl-login">
             <div class="tpl-login-content">
                 <div class="tpl-login-logo">
-
                 </div>
-
-
-
-                <form class="am-form tpl-form-line-form">
+                <form class="am-form tpl-form-line-form" id="form-loginfo">
                     <div class="am-form-group">
-                        <input type="text" class="tpl-form-input" id="user-name" placeholder="请输入账号">
-
+                        <input type="text" class="tpl-form-input" id="user-name" name="username" minlength="2" required placeholder="请输入账号">
                     </div>
-
                     <div class="am-form-group">
-                        <input type="password" class="tpl-form-input" id="user-name" placeholder="请输入密码">
-
+                        <input type="password" class="tpl-form-input" id="user-name" name="userpwd" minlength="6" required placeholder="请输入密码">
                     </div>
                     <div class="am-form-group tpl-login-remember-me">
                         <input id="remember-me" type="checkbox">
-                        <label for="remember-me">
-       
-                        记住密码
-                         </label>
-
+                        <label for="remember-me">记住密码</label>
                     </div>
-
-
-
-
-
-
                     <div class="am-form-group">
-
-                        <button type="button" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">提交</button>
-
+                        <button type="button" id="btnsubimt" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">提交</button>
                     </div>
                 </form>
             </div>
@@ -80,7 +60,40 @@
     </div>
     <script src="assets/js/amazeui.min.js"></script>
     <script src="assets/js/app.js"></script>
-
 </body>
+<script>
+    $(function () {
+        $('#btnsubimt').on('click', function () {
+            // 处理异步验证结果
+            $.when($('#form-loginfo').validator('isFormValid')).then(function (isValidate) {
+                if (isValidate) {
+                    login();
+                } else {
+                }
+            });
+        });
+    })
+
+    function login() {
+        $.ajax({
+            type: "POST",
+            url: "login",
+            data: $('#form-loginfo').serialize(),
+            dataType: 'json',
+            success: function (res) {
+                if (res.status) {
+                    location.href='index.html';
+                }
+                else {
+                    alert(res.msg);
+                }
+            },
+            error: function (msg) {
+                alert(msg);
+            }
+        });
+    }
+
+</script>
 
 </html>

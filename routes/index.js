@@ -13,6 +13,8 @@ router.get('/',function(req,res){
 router.all('/booktype/*',require('./book'));
 //图书
 router.all('/book/*',require('./book'));
+//用户
+router.all('/admin/*',require('./user'));
 //微信消息接口 get
 router.get('/api',function(req,res){
     if(weixinApi.checkSignature(req)){
