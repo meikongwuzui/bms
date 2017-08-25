@@ -35,7 +35,7 @@ function b_book(){
         sqlhelper.querywithpara("SELECT COUNT(*) as count FROM `b_book` WHERE `isbn` = ? ;  ",
         para,
         function(result){
-            callback(result.count>0);
+            callback( JSON.parse(result).count>0);
         });
     }
 }
