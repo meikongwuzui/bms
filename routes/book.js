@@ -44,3 +44,5 @@ router.get('/booktype/getlist',function(req,res){
         }
     });
 });
+
+module.exports=router;
