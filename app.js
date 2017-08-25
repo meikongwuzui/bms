@@ -22,7 +22,7 @@ app.post('/book/add',function(req,res){
             res.send('{"status":false,"msg":"book is exist"');
         }else{
             book.insert(bookinfo,function(result){
-                res.send('{"status":true,"msg":"入库成功"');
+                res.status(200).send('{"status":true,"msg":"入库成功"');
             });
         }
     });
