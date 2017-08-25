@@ -27,19 +27,27 @@ html(lang='en')
     style.
       .book{width: 78%;    height: auto;    padding-left: 11%;}
   body
-    header.am-header.am-header-default(data-am-widget='header')
-      .am-header-left.am-header-nav
-        a(href='#left-link')
-          span.am-header-nav-title
-            | 首页
-          i.am-header-icon.am-icon-home
-      h1.am-header-title
-        | 所有图书
-      .am-header-right.am-header-nav
-        a(href='#right-link')
-          span.am-header-nav-title
-            | 分类
-          i.am-header-icon.am-icon-bars
+    header.am-topbar.am-topbar-fixed-top
+      .am-container
+        h1.am-topbar-brand
+          a(href='#') 蓝剑图书馆
+        button.am-topbar-btn.am-topbar-toggle.am-btn.am-btn-sm.am-btn-secondary.am-show-sm-only.am-collapsed(data-am-collapse="{target: '#collapse-head'}")
+          span.am-sr-only 导航切换
+          span.am-icon-bars
+        #collapse-head.am-topbar-collapse.am-collapse(style='height: 20px;')
+          ul.am-nav.am-nav-pills.am-topbar-nav
+            li
+              a(href='../home.html') 首页
+            li.am-active
+              a(href='#') 图书清单
+          .am-topbar-right
+            button.am-btn.am-btn-secondary.am-topbar-btn.am-btn-sm
+              span.am-icon-pencil
+              |  注册
+          .am-topbar-right
+            button.am-btn.am-btn-primary.am-topbar-btn.am-btn-sm
+              span.am-icon-user
+              |  登录
     nav.am-menu.am-menu-offcanvas1(data-am-widget='menu', data-am-menu-offcanvas='')
       a.am-menu-toggle(href='javascript: void(0)')
         // <i class="am-menu-toggle-icon am-icon-bars"></i>
