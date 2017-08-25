@@ -8,7 +8,7 @@ router.post('/admin/login', function (req, res) {
     user.login(loginfo, function (resul) {
         if (resul) {
             if (resul.length > 0) {
-                res.send('{"status":true,"data":' + resul[0] + '}');
+                res.send('{"status":true,"data":' + JSON.stringify(resul[0]) + '}');
             }
             else {
                 res.send('{"status":false,"msg":"账号或者密码错误"}');
