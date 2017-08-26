@@ -21,12 +21,10 @@ router.get('/api/weixin/author/gotcode',function(req,res){//
     console.log(req.baseUrl);
     var code=req.query.code;
     jssdk.getauthoraccesstoken(code,function(resul){
-        console.log(resul);
         var acctokeninfo=JSON.parse(resul);
         var acctoken=acctokeninfo.access_token;
         var openid=acctokeninfo.openid;
         jssdk.getuserinfo(acctoken,openid,function(userinfo){//微信返回code，继续处理
-            console.log(userinfo);
             res.render('../views/user/index',{user: JSON.parse(userinfo)});
         })
     })
