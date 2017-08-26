@@ -1,8 +1,7 @@
 var express=require('express');
-var router=express.Router();
-var weixinApi=require('weixin-api');
 var path=require('path');
-var jssdk=require('./jssdk');
+
+var router=express.Router();
 
 //无目录显示主页
 router.get('/',function(req,res){

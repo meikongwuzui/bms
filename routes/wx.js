@@ -1,4 +1,6 @@
 var express = require('express');
+var weixinApi=require('weixin-api');
+var jssdk=require('./jssdk');
 
 var router = express.Router();
 
