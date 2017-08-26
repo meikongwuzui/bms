@@ -15,12 +15,15 @@ router.get('/api/weixin/getjsticket',function(req,res){
 router.get('/api/weixin/author/login',function(req,res){
     var resurl = req.protocol +'://'+ req.host+'/api/weixin/author/gotcode';
     var url = jssdk.getAuthorizeURL(resurl);
-    console.log(url);
     res.redirect(url);
 })
 router.get('/api/weixin/author/gotcode',function(req,res){
-    console.log(req.baseUrl)
-    res.status(200).send('ok');
+    console.log(req.baseUrl);
+    var code=req.query.code;
+    jssdk.getauthoraccesstoken(code,function(resul){
+        console.log(resul);
+        res.status(200).send('ok');
+    })
 })
 //微信消息接口 get
 router.get('/api',function(req,res){

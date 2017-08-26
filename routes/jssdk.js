@@ -56,8 +56,31 @@ function Jssdk() {
             scope: scope || 'snsapi_userinfo',
             state: state || ''
         };
-
         return url + '?' + querystring.stringify(info) + '#wechat_redirect';
+    },
+    this.getauthoraccesstoken=function(code,callback){
+       var url =  'https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxa4e7517fe99f820e&secret=513a774504039197f29fcf486ddb32c5&code='
+       +code
+       +'&grant_type=authorization_code';
+
+       http.get(url, function (res) {
+            var datas = [];
+            var size = 0;
+            res.on('data', function (data) {
+                datas.push(data);
+                size += data.length;
+                //process.stdout.write(data);  
+            });
+            res.on("end", function () {
+                var buff = Buffer.concat(datas, size);
+                // var result = iconv.decode(buff, "utf8");//转码
+                var result = buff.toString();//不需要转编码,直接tostring 
+                callback(result);
+            });
+        }).on("error", function (err) {
+            Logger.error(err.stack)
+            callback.apply(null);
+        });
     }
 }
 
