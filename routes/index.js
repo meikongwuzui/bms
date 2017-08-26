@@ -14,6 +14,7 @@ router.all('/booktype/*',require('./book'));
 router.all('/book/*',require('./book'));
 //用户
 router.all('/admin/*',require('./user'));
+router.all('/user/*',require('./user'));
 //微信
 router.all('/api*',require('./wx'));
 

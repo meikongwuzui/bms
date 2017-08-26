@@ -20,5 +20,10 @@ router.post('/admin/login', function (req, res) {
         }
     });
 });
+router.get('/user/index',function(req,res){
+    res.render('../views/user/index',{user: JSON.parse(userinfo)},function(err,html){
+        res.status(200).send(html);
+    });
+});
 
 module.exports = router;

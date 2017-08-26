@@ -2,6 +2,7 @@ var express = require('express');
 var weixinApi=require('weixin-api');
 var jssdk=require('./jssdk');
 var weixin=require('./weixin');
+var u_weixin=require('../sql/u_weixin');
 
 var router = express.Router();
 
@@ -14,7 +15,7 @@ router.get('/api/weixin/getjsticket',function(req,res){
     });
 })
 router.get('/api/weixin/author/login',function(req,res){//从这里去请求网页授权，统一入口
-    var resurl = req.protocol +'://'+ req.host+'/api/weixin/oauth/gotcode';
+    var resurl = req.protocol +'://'+ req.hostname+'/api/weixin/oauth/gotcode';
     var url = jssdk.getAuthorizeURL(resurl);
     res.redirect(url);
 })
@@ -26,12 +27,22 @@ router.get('/api/weixin/oauth/gotcode',function(req,res){//
         var acctoken=acctokeninfo.access_token;
         var openid=acctokeninfo.openid;
         jssdk.getuserinfo(acctoken,openid,function(userinfo){//微信返回code，函数内继续处理，返回用户信息
-            res.render('../views/user/index',{user: JSON.parse(userinfo)},function(err,html){
-                res.location('http://www.coolwan.cc/user/index').status(200).send(html);
+            var u_userinfo=JSON.parse(userinfo);
+            u_weixin.isexist(u_userinfo.openid,function(exist){
+                if(exist){
+                    res.redirect('http://www.coolwan.cc/user/index?openid='+ u_userinfo.openid);
+                }
+                else{
+                    u_weixin.insert(u_userinfo,function(){
+                        res.redirect('http://www.coolwan.cc/user/index?openid='+ u_userinfo.openid);
+                    })
+                }
             });
+            
         })
     })
-})
+});
+
 //微信消息接口 get
 router.get('/api',function(req,res){
     if(weixinApi.checkSignature(req)){
