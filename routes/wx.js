@@ -28,13 +28,13 @@ router.get('/api/weixin/oauth/gotcode',function(req,res){//
         var openid=acctokeninfo.openid;
         jssdk.getuserinfo(acctoken,openid,function(userinfo){//微信返回code，函数内继续处理，返回用户信息
             var u_userinfo=JSON.parse(userinfo);
-            u_weixin.isexist(u_userinfo.openid,function(exist){
+            u_weixin.isexist(openid,function(exist){
                 if(exist){
-                    res.redirect('http://www.coolwan.cc/user/index?openid='+ u_userinfo.openid);
+                    res.redirect('http://www.coolwan.cc/user/index?openid='+ openid);
                 }
                 else{
                     u_weixin.insert(u_userinfo,function(){
-                        res.redirect('http://www.coolwan.cc/user/index?openid='+ u_userinfo.openid);
+                        res.redirect('http://www.coolwan.cc/user/index?openid='+ openid);
                     })
                 }
             });
