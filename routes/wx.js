@@ -23,6 +23,7 @@ router.get('/api/weixin/oauth/gotcode',function(req,res){//
     console.log(req.baseUrl);
     var code=req.query.code;
     jssdk.getauthoraccesstoken(code,function(resul){
+        console.log('getaccetoken:'+resul);
         var acctokeninfo=JSON.parse(resul);
         var acctoken=acctokeninfo.access_token;
         var openid=acctokeninfo.openid;
