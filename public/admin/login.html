@@ -82,7 +82,7 @@
             dataType: 'json',
             success: function (res) {
                 if (res.status) {
-                    $.AMUI.utils.cookie.set('paul-userinfo',res.data);
+                    $.AMUI.utils.cookie.set('paul-userinfo', JSON.stringify(res.data));
                     location.href='index';
                 }
                 else {
