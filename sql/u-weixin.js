@@ -4,7 +4,7 @@ function u_weixin(){
     this.isexist=function(openid,callback){
         var para=[openid];
         console.log('foeid:'+openid);
-        sqlhelper.querywithpara("SELECT COUNT(*) as count FROM u_weixin WHERE openid=?",
+        sqlhelper.querywithpara("SELECT COUNT(*) as count FROM `u_weixin` WHERE `openid`= ? ; ",
         para,
         function(result){
             callback(result[0].count>0);
