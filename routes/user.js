@@ -23,7 +23,7 @@ router.post('/admin/login', function (req, res) {
 });
 router.get('/user/index',function(req,res){
     if(req.query.openid){
-        u_weixin.detail(openid,function(userinfo){
+        u_weixin.detail(req.query.openid,function(userinfo){
             res.render('../views/user/index',{user: JSON.parse(userinfo)},function(err,html){
                 res.status(200).send(html);
             });
