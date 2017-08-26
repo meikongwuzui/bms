@@ -22,7 +22,13 @@ router.get('/api/weixin/author/gotcode',function(req,res){
     var code=req.query.code;
     jssdk.getauthoraccesstoken(code,function(resul){
         console.log(resul);
-        res.status(200).send('ok');
+        var acctokeninfo=JSON.parse(resul);
+        var acctoken=acctokeninfo.access_token;
+        var openid=acctokeninfo.openid;
+        jssdk.getuserinfo(acctoken,openid,function(userinfo){
+            console.log(userinfo);
+            res.status(200).send(userinfo);
+        })
     })
 })
 //微信消息接口 get
