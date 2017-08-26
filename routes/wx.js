@@ -1,6 +1,7 @@
 var express = require('express');
 var weixinApi=require('weixin-api');
 var jssdk=require('./jssdk');
+var weixin=require('./weixin');
 
 var router = express.Router();
 
@@ -13,19 +14,21 @@ router.get('/api/weixin/getjsticket',function(req,res){
     });
 })
 router.get('/api/weixin/author/login',function(req,res){//从这里去请求网页授权，统一入口
-    var resurl = req.protocol +'://'+ req.host+'/api/weixin/author/gotcode';
+    var resurl = req.protocol +'://'+ req.host+'/api/weixin/oauth/gotcode';
     var url = jssdk.getAuthorizeURL(resurl);
     res.redirect(url);
 })
-router.get('/api/weixin/author/gotcode',function(req,res){//
+router.get('/api/weixin/oauth/gotcode',function(req,res){//
     console.log(req.baseUrl);
     var code=req.query.code;
     jssdk.getauthoraccesstoken(code,function(resul){
         var acctokeninfo=JSON.parse(resul);
         var acctoken=acctokeninfo.access_token;
         var openid=acctokeninfo.openid;
-        jssdk.getuserinfo(acctoken,openid,function(userinfo){//微信返回code，继续处理
-            res.render('../views/user/index',{user: JSON.parse(userinfo)});
+        jssdk.getuserinfo(acctoken,openid,function(userinfo){//微信返回code，函数内继续处理，返回用户信息
+            res.render('../views/user/index',{user: JSON.parse(userinfo)},function(err,html){
+                res.location(req.protocol +'://'+ req.host +'/user/index').status(200).send(html);
+            });
         })
     })
 })
