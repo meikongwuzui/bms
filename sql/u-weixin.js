@@ -2,10 +2,8 @@ var sqlhelper=require('../routes/sqlhelper');
 
 function u_weixin(){
     this.isexist=function(openid,callback){
-        var para=[openid];
         console.log('foeid:'+openid);
-        sqlhelper.querywithpara("SELECT COUNT(*) as count FROM `u_weixin` WHERE `openid`= ? ; ",
-        para,
+        sqlhelper.query("SELECT COUNT(*) as count FROM `u_weixin` WHERE `openid`= '"+openid+"' ; ",
         function(result){
             callback(result[0].count>0);
         });
