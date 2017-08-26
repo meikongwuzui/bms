@@ -82,7 +82,8 @@
             dataType: 'json',
             success: function (res) {
                 if (res.status) {
-                    location.href='index.html';
+                    $.AMUI.utils.cookie.set('paul-userinfo',res.data);
+                    location.href='index';
                 }
                 else {
                     alert(res.msg);
