@@ -19,14 +19,14 @@ router.get('/api/weixin/author/login',function(req,res){//从这里去请求网�
     var url = jssdk.getAuthorizeURL(resurl);
     res.redirect(url);
 })
-router.get('/api/weixin/oauth/gotcode',function(req,res){//
-    console.log(req.baseUrl);
+router.get('/api/weixin/oauth/gotcode',function(req,res){//微信返回code，函数内继续处理，返回用户信息
     var code=req.query.code;
     jssdk.getauthoraccesstoken(code,function(resul){
         var acctokeninfo=JSON.parse(resul);
         var acctoken=acctokeninfo.access_token;
         var openid=acctokeninfo.openid;
-        jssdk.getuserinfo(acctoken,openid,function(userinfo){//微信返回code，函数内继续处理，返回用户信息
+        jssdk.getuserinfo(acctoken,openid,function(result){
+            var userinfo=JSON.parse(result);
             u_weixin.isexist(openid,function(exist){
                 if(exist){
                     res.redirect('http://www.coolwan.cc/user/index?openid='+ openid);

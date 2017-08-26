@@ -99,8 +99,6 @@ function Jssdk() {
                  var result = buff.toString();//不需要转编码,直接tostring 
 
                 //得到了用户信息
-                var userinfo=JSON.parse(result);
-
                  callback(result);
              });
          }).on("error", function (err) {
