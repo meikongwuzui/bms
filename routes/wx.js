@@ -25,14 +25,19 @@ router.get('/api/weixin/oauth/gotcode',function(req,res){//微信返回code，�
         var acctokeninfo=JSON.parse(resul);
         var acctoken=acctokeninfo.access_token;
         var openid=acctokeninfo.openid;
+
+        console.log('aopenid:'+openid);
         jssdk.getuserinfo(acctoken,openid,function(result){
             var userinfo=JSON.parse(result);
+            console.log('bopenid:'+openid);
             u_weixin.isexist(openid,function(exist){
                 if(exist){
+                    console.log('copenid:'+openid);
                     res.redirect('http://www.coolwan.cc/user/index?openid='+ openid);
                 }
                 else{
                     u_weixin.insert(userinfo,function(){
+                        console.log('dopenid:'+openid);
                         res.redirect('http://www.coolwan.cc/user/index?openid='+ openid);
                     })
                 }
