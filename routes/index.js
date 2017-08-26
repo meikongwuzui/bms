@@ -15,6 +15,6 @@ router.all('/book/*',require('./book'));
 //用户
 router.all('/admin/*',require('./user'));
 //微信
-router.all('/api/*',require('./wx'));
+router.all('/api*',require('./wx'));
 
 module.exports=router;
