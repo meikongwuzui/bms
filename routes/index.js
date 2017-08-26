@@ -15,26 +15,7 @@ router.all('/booktype/*',require('./book'));
 router.all('/book/*',require('./book'));
 //用户
 router.all('/admin/*',require('./user'));
-//微信消息接口 get
-router.get('/api',function(req,res){
-    if(weixinApi.checkSignature(req)){
-        res.status(200).send(req.query.echostr);
-    }
-    else{
-        res.status(200).send('fail');
-    }
-});
-//微信接口消息 post
-router.post('/api',function(req,res){
-    weixinApi.loop(req,res);
-});
-//微信获取网页jssticket
-router.get('/weixin/getjsticket',function(req,res){
-    jssdk.getaccess_token(function(result){
-        jssdk.getjsapi_ticket(JSON.parse(result).access_token,function(data){
-            res.status(200).send(data);
-        });
-    });
-})
+//微信
+router.all('/api/*',require('./wx'));
 
 module.exports=router;
