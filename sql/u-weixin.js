@@ -2,16 +2,13 @@ var sqlhelper=require('../routes/sqlhelper');
 
 function u_weixin(){
     this.isexist=function(openid,callback){
-        console.log('foeid:'+openid);
         sqlhelper.query("SELECT COUNT(*) as count FROM `u_weixin` WHERE `openid`= '"+openid+"' ; ",
         function(result){
             callback(result[0].count>0);
         });
     },
     this.detail=function(openid,callback){
-        var para=[openid];
-        sqlhelper.querywithpara("SELECT * FROM u_weixin WHERE openid=?",
-        para,
+        sqlhelper.query("SELECT * FROM `u_weixin` WHERE `openid`= '"+openid+"' ; ",
         function(result){
             callback(result[0]);
         });
