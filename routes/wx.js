@@ -31,6 +31,7 @@ router.get('/api/weixin/oauth/gotcode',function(req,res){//微信返回code，�
             var userinfo=JSON.parse(result);
             console.log('bopenid:'+openid);
             u_weixin.isexist(openid,function(exist){
+                console.log('exist:'+exist);
                 if(exist){
                     console.log('copenid:'+openid);
                     res.redirect('http://www.coolwan.cc/user/index?openid='+ openid);
