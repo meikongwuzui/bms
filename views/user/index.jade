@@ -1,0 +1,95 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title 个人主页
+    // Set render engine for 360 browser
+    meta(name='renderer', content='webkit')
+    // No Baidu Siteapp
+    meta(http-equiv='Cache-Control', content='no-siteapp')
+    link(rel='icon', type='image/png', href='../assets/i/favicon.png')
+    // Add to homescreen for Chrome on Android
+    meta(name='mobile-web-app-capable', content='yes')
+    link(rel='icon', sizes='192x192', href='../assets/i/app-icon72x72@2x.png')
+    // Add to homescreen for Safari on iOS
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black')
+    meta(name='apple-mobile-web-app-title', content='Amaze UI')
+    link(rel='apple-touch-icon-precomposed', href='../assets/i/app-icon72x72@2x.png')
+    // Tile icon for Win8 (144x144 + tile color)
+    meta(name='msapplication-TileImage', content='../assets/i/app-icon72x72@2x.png')
+    meta(name='msapplication-TileColor', content='#0e90d2')
+    link(rel='stylesheet', href='../assets/css/amazeui.min.css')
+    link(rel='stylesheet', href='../assets/css/app.css')
+    link(rel='stylesheet', href='../css/user-index.css')
+    style.
+      li {
+      list-style-type: none;
+      }
+  body
+    header.am-topbar.am-topbar-fixed-top
+      .am-container
+        h1.am-topbar-brand
+          a(href='#') 蓝剑图书馆
+        button.am-topbar-btn.am-topbar-toggle.am-btn.am-btn-sm.am-btn-secondary.am-show-sm-only.am-collapsed(data-am-collapse="{target: '#collapse-head'}")
+          span.am-sr-only 导航切换
+          span.am-icon-bars
+        #collapse-head.am-topbar-collapse.am-collapse(style='height: 20px;')
+          ul.am-nav.am-nav-pills.am-topbar-nav
+            li
+              a(href='../home.html') 首页
+            li.am-active
+              a(href='#') 图书清单
+            //
+              <li class="am-dropdown" data-am-dropdown="">
+              <a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
+              榜单 <span class="am-icon-caret-down"></span>
+              </a>
+              <ul class="am-dropdown-content">
+              <li><a href="#">借阅排行榜</a></li>
+              <li><a href="#">热门评论榜</a></li>
+              <li><a href="#">3. 文字排版</a></li>
+              <li><a href="#">4. 网格系统</a></li>
+              </ul>
+              </li>
+          .am-topbar-right
+            button.am-btn.am-btn-secondary.am-topbar-btn.am-btn-sm
+              span.am-icon-pencil
+              |  注册
+          .am-topbar-right
+            button.am-btn.am-btn-primary.am-topbar-btn.am-btn-sm
+              span.am-icon-user
+              |  登录
+    // 在这里编写你的代码
+    .category2top
+      .am-g.am-container.userinfo
+        .am-u-sm-12.am-u-md-12.am-u-lg-5.userinfo_left
+          .am-g
+            .am-u-md-12.am-u-lg-6.userface
+              img(src='#{user.headimgurl}')
+            .am-u-md-12.am-u-lg-6.userin
+              h3 #{user.nickname}
+              h4 AmazeUI
+              p
+                | 借阅
+                span 9
+              button.am-btn.am-btn-warning.am-hide-lg-only(type='button', style='margin: 0 auto; margin-top: 30px')
+                i.am-icon-plus
+                |                             去借书
+        .am-u-sm-0.am-u-md-12.am-u-lg-4.am-show-lg-only.userinfo_center
+          | 削减是一个从源代码中删除不必要的字符的技术使它看起来简单而整洁。这种技术也被称为代码压缩和最小化。
+        .am-u-sm-12.am-u-md-12.am-u-lg-3.am-show-lg-only.userinfo_right
+          button.am-btn.am-btn-warning(type='button')
+            i.am-icon-plus
+            |                         订阅
+    // 在这里编写你的代码
+    // [if (gte IE 9)|!(IE)] <!
+    script(src='../assets/js/jquery.min.js')
+    // <![endif]
+    //if lte IE 8 
+      script(src='http://libs.baidu.com/jquery/1.11.3/jquery.min.js')
+      script(src='http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js')
+      script(src='assets/js/amazeui.ie8polyfill.min.js')
+    script(src='../assets/js/amazeui.min.js')
