@@ -47,11 +47,6 @@ function Jssdk() {
             callback.apply(null);
         });
     },
-    this.getcode = function (responseurl) {//用户授权获取网页授权--获取code
-        // var url='https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid+'&redirect_uri='+
-        // +'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
-        var url = this.getAuthorizeURL(responseurl);
-    },
     this.getAuthorizeURL = function (redirect, state, scope) {
         var url = 'https://open.weixin.qq.com/connect/oauth2/authorize';
         var info = {

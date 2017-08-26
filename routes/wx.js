@@ -13,9 +13,14 @@ router.get('/api/weixin/getjsticket',function(req,res){
     });
 })
 router.get('/api/weixin/author/login',function(req,res){
-    console.log(req.protocol +'//'+ req.host);
+    var resurl = req.protocol +'://'+ req.host+'/api/weixin/author/gotcode';
+    var url = jssdk.getAuthorizeURL(url);
+    console.log(url);
+    res.redirect(url);
+})
+router.get('/api/weixin/author/gotcode',function(req,res){
+    console.log(req.baseUrl)
     res.status(200).send('ok');
-    // jssdk.getcode('')
 })
 //微信消息接口 get
 router.get('/api',function(req,res){
