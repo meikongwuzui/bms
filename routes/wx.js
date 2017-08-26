@@ -14,7 +14,7 @@ router.get('/api/weixin/getjsticket',function(req,res){
 })
 router.get('/api/weixin/author/login',function(req,res){
     var resurl = req.protocol +'://'+ req.host+'/api/weixin/author/gotcode';
-    var url = jssdk.getAuthorizeURL(url);
+    var url = jssdk.getAuthorizeURL(resurl);
     console.log(url);
     res.redirect(url);
 })
