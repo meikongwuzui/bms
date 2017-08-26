@@ -83,7 +83,7 @@ function Jssdk() {
         });
     },
     this.getuserinfo=function(accetoken,openid,callback){
-        var url =  'https://api.weixin.qq.com/sns/userinfo?access_token='+access_token+'&openid='+openid+'&lang=zh_CN';
+        var url =  'https://api.weixin.qq.com/sns/userinfo?access_token='+accetoken+'&openid='+openid+'&lang=zh_CN';
  
         http.get(url, function (res) {
              var datas = [];
