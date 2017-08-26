@@ -27,7 +27,7 @@ router.get('/api/weixin/author/gotcode',function(req,res){//
         var openid=acctokeninfo.openid;
         jssdk.getuserinfo(acctoken,openid,function(userinfo){//微信返回code，继续处理
             console.log(userinfo);
-            res.render('../views/user/index',{user:userinfo});
+            res.render('../views/user/index',{user: JSON(userinfo)});
         })
     })
 })
