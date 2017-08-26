@@ -27,7 +27,7 @@ router.get('/api/weixin/oauth/gotcode',function(req,res){//
         var openid=acctokeninfo.openid;
         jssdk.getuserinfo(acctoken,openid,function(userinfo){//微信返回code，函数内继续处理，返回用户信息
             res.render('../views/user/index',{user: JSON.parse(userinfo)},function(err,html){
-                res.location(req.protocol +'://'+ req.host +'/user/index').status(200).send(html);
+                res.location('http://www.coolwan.cc/user/index').status(200).send(html);
             });
         })
     })
@@ -43,6 +43,7 @@ router.get('/api',function(req,res){
 });
 //微信接口消息 post
 router.post('/api',function(req,res){
+    console.log('req'+req);
     weixinApi.loop(req,res);
 });
 
