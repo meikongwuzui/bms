@@ -3,6 +3,10 @@ var user = require('../sql/user');
 
 var router = express.Router();
 
+router.get('/admin/index',function(req,res){
+    res.render('../views/admin/index');
+});
+
 router.post('/admin/login', function (req, res) {
     var loginfo = req.body;
     user.login(loginfo, function (resul) {
