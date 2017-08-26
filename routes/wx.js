@@ -37,6 +37,7 @@ router.get('/api/weixin/oauth/gotcode',function(req,res){//微信返回code，�
                     res.redirect('http://www.coolwan.cc/user/index?openid='+ openid);
                 }
                 else{
+                    console.log(JSON.stringify(userinfo));
                     u_weixin.insert(userinfo,function(){
                         console.log('dopenid:'+openid);
                         res.redirect('http://www.coolwan.cc/user/index?openid='+ openid);
