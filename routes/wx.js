@@ -13,6 +13,10 @@ router.get('/api/weixin/getjsticket',function(req,res){
     });
 })
 router.get('/api/weixin/author/login',function(req,res){
+    console.log(req.baseUrl);
+    console.log(req.url);
+    console.log(req.host);
+    console.log(req.hostname);
     console.log(req.originalUrl);
     res.status(200).send('ok');
     // jssdk.getcode('')
