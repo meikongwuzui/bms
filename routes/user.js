@@ -1,5 +1,6 @@
 var express = require('express');
 var user = require('../sql/user');
+var u_weixin=require('../sql/u-weixin');
 
 var router = express.Router();
 
@@ -21,9 +22,16 @@ router.post('/admin/login', function (req, res) {
     });
 });
 router.get('/user/index',function(req,res){
-    res.render('../views/user/index',{user: JSON.parse(userinfo)},function(err,html){
-        res.status(200).send(html);
-    });
+    if(req.query.openid){
+        u_weixin.detail(openid,function(userinfo){
+            res.render('../views/user/index',{user: JSON.parse(userinfo)},function(err,html){
+                res.status(200).send(html);
+            });
+        })
+        
+    }else{
+        res.send('erro openid');
+    }
 });
 
 module.exports = router;
