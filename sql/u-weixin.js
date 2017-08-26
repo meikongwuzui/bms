@@ -19,7 +19,7 @@ function u_weixin(){
     this.insert=function(weixin,callback){
         console.log('add openid:'+weixin.openid);
         console.log('add :'+ JSON.stringify(weixin));
-        var para=[weixin.fkuserid,weixin.openid,weixin.nickname,weixin.sex,weixin.province,weixin.city
+        var para=[0,weixin.openid,weixin.nickname,weixin.sex,weixin.province,weixin.city
             ,weixin.country,weixin.headimgurl,weixin.privilege,weixin.unionid];
         sqlhelper.querywithpara("INSERT INTO u_weixin(fkuserid,openid,nickname,sex,province,city,"+
             "country,headimgurl,privilege,unionid)values(?,?,?,?,?,?,?,?,?,?)",
