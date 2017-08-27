@@ -38,8 +38,8 @@ router.get('/booktype/getlist',function(req,res){
      else if(req.query.isbn){
          console.log('isbn:' + req.query.isbn);
         var openid=req.query.openid;
-        book.detailbyisbn(req.query.isbn.split(',')[0],function(result){
-            console.log('book tail'+result);
+        book.detailbyisbn(req.query.isbn.split(',')[1],function(result){
+            console.log('book tail:'+result);
             res.render('../views/book/detail',{book:result},function(err,html){
                 res.cookie('userinfo',{openid:openid}).send(html);
             });
