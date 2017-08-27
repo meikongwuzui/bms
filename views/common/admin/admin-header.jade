@@ -1,0 +1,98 @@
+extends admin-layout
+
+block header
+    header
+        // logo
+        .am-fl.tpl-header-logo
+            a(href='javascript:;')
+                img(src='assets/img/logo.png', alt='')
+        // 右侧内容
+        .tpl-header-fluid
+            // 侧边切换
+            .am-fl.tpl-header-switch-button.am-icon-list
+                span
+            // 搜索
+            .am-fl.tpl-header-search
+                form.tpl-header-search-form(action='javascript:;')
+                    button.tpl-header-search-btn.am-icon-search
+                    input.tpl-header-search-box(type='text', placeholder='搜索内容...')
+            // 其它功能
+            .am-fr.tpl-header-navbar
+                ul
+                    // 欢迎语
+                    li.am-text-sm.tpl-header-navbar-welcome
+                        a(href='javascript:;')
+                            | 欢迎你, 
+                            span Amaze UI
+                    // 新邮件
+                    li.am-dropdown.tpl-dropdown(data-am-dropdown='')
+                        a.am-dropdown-toggle.tpl-dropdown-toggle(href='javascript:;', data-am-dropdown-toggle='')
+                            i.am-icon-envelope
+                            span.am-badge.am-badge-success.am-round.item-feed-badge 4
+                        // 弹出列表
+                        ul.am-dropdown-content.tpl-dropdown-content
+                            li.tpl-dropdown-menu-messages
+                                a.tpl-dropdown-menu-messages-item.am-cf(href='javascript:;')
+                                    .menu-messages-ico
+                                        img(src='assets/img/user04.png', alt='')
+                                    .menu-messages-time
+                                        | 3小时前
+                                    .menu-messages-content
+                                        .menu-messages-content-title
+                                            i.am-icon-circle-o.am-text-success
+                                            span 夕风色
+                                        .am-text-truncate  Amaze UI 的诞生，依托于 GitHub 及其他技术社区上一些优秀的资源；Amaze UI 的成长，则离不开用户的支持。 
+                                        .menu-messages-content-time 2016-09-21 下午 16:40
+                            li.tpl-dropdown-menu-messages
+                                a.tpl-dropdown-menu-messages-item.am-cf(href='javascript:;')
+                                    .menu-messages-ico
+                                        img(src='assets/img/user02.png', alt='')
+                                    .menu-messages-time
+                                        | 5天前
+                                    .menu-messages-content
+                                        .menu-messages-content-title
+                                            i.am-icon-circle-o.am-text-warning
+                                            span 禁言小张
+                                        .am-text-truncate  为了能最准确的传达所描述的问题， 建议你在反馈时附上演示，方便我们理解。 
+                                        .menu-messages-content-time 2016-09-16 上午 09:23
+                            li.tpl-dropdown-menu-messages
+                                a.tpl-dropdown-menu-messages-item.am-cf(href='javascript:;')
+                                    i.am-icon-circle-o
+                                    |  进入列表…
+                    // 新提示
+                    li.am-dropdown(data-am-dropdown='')
+                        a.am-dropdown-toggle(href='javascript:;', data-am-dropdown-toggle='')
+                            i.am-icon-bell
+                            span.am-badge.am-badge-warning.am-round.item-feed-badge 5
+                        // 弹出列表
+                        ul.am-dropdown-content.tpl-dropdown-content
+                            li.tpl-dropdown-menu-notifications
+                                a.tpl-dropdown-menu-notifications-item.am-cf(href='javascript:;')
+                                    .tpl-dropdown-menu-notifications-title
+                                        i.am-icon-line-chart
+                                        span  有6笔新的销售订单
+                                    .tpl-dropdown-menu-notifications-time
+                                        | 12分钟前
+                            li.tpl-dropdown-menu-notifications
+                                a.tpl-dropdown-menu-notifications-item.am-cf(href='javascript:;')
+                                    .tpl-dropdown-menu-notifications-title
+                                        i.am-icon-star
+                                        span  有3个来自人事部的消息
+                                    .tpl-dropdown-menu-notifications-time
+                                        | 30分钟前
+                            li.tpl-dropdown-menu-notifications
+                                a.tpl-dropdown-menu-notifications-item.am-cf(href='javascript:;')
+                                    .tpl-dropdown-menu-notifications-title
+                                        i.am-icon-folder-o
+                                        span  上午开会记录存档
+                                    .tpl-dropdown-menu-notifications-time
+                                        | 1天前
+                            li.tpl-dropdown-menu-notifications
+                                a.tpl-dropdown-menu-notifications-item.am-cf(href='javascript:;')
+                                    i.am-icon-bell
+                                    |  进入列表…
+                    // 退出
+                    li.am-text-sm
+                        a(href='javascript:;')
+                            span.am-icon-sign-out
+                            |  退出
