@@ -66,7 +66,7 @@ function b_book(){
         str = str + "ORDER BY ? ?  LIMIT ?,?"
 
         console.log('page searching:'+str);
-        sqlhelper.querywithpara(str,function(result){
+        sqlhelper.querywithpara(str,para,function(result){
             callback(result);
         });
     },
