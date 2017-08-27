@@ -35,7 +35,14 @@ function b_book(){
             callback(result);
         });
     },
-    this.pagelist=function(typeid,callback){
+    this.pagelist=function(pagemodel,wheremodel,callback){
+        var currentpage = pagemodel.currentpage;
+        var pagesize = pagemodel.pagesize;
+        var orderby = pagemodel.orderby;
+        var ordertype = pagemodel.ordertype;
+
+        var para=['pkid','desc', currentpage*pagesize,pagesize];
+
         var str="SELECT\
         b_book.pkid,\
         b_book.`name`,\
@@ -49,13 +56,17 @@ function b_book(){
         b_book\
         LEFT OUTER JOIN b_type_book_ref ON b_book.pkid=b_type_book_ref.fkbookid\
         LEFT OUTER JOIN b_booktype ON b_type_book_ref.fkbooktypeid=b_booktype.pkid\
-        WHERE 1=1 \
-        AND b_type_book_ref.fkbooktypeid=7\
-        AND b_book.`name` LIKE '%深入%'\
-        ORDER BY pkid DESC\
-        LIMIT 0,10"
+        WHERE 1=1 "
+        if(wheremodel.fkbooktypeid>0){
+           str = str + "AND b_type_book_ref.fkbooktypeid=" + wheremodel.keyword;
+        }
+        if(wheremodel.keyword){
+           str = str + "AND b_book.`name` LIKE '%" + wheremodel.keyword + "%'";
+        }
+        str = str + "ORDER BY ? ?  LIMIT ?,?"
 
-        sqlhelper.query(str,function(result){
+        console.log('page searching:'+str);
+        sqlhelper.querywithpara(str,function(result){
             callback(result);
         });
     },

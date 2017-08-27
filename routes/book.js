@@ -27,6 +27,19 @@ router.get('/booktype/getlist',function(req,res){
          res.status(200).send('无效的图书类别');
      }
  })
+ //分页获取图书
+ router.get('/book/pagequery',function(req,res){ 
+    var pagemodel={
+         currentpage : req.query.currentpage,
+         pagesize : req.query.pagesize,
+         orderby : req.query.orderby,
+         ordertype : req.query.ordertype
+    };
+    var wheremodel={};
+    book.pagelist(pagemodel,wheremodel,function(result){
+        res.render('../views/book/allbook',{booklist:result});
+    });
+})
  
  router.get('/book/detail',function(req,res){
      if(req.query.b){
