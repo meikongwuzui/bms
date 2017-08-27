@@ -40,9 +40,6 @@ function b_book(){
         var pagesize = pagemodel.pagesize;
         var orderby = pagemodel.orderby;
         var ordertype = pagemodel.ordertype;
-
-        var para=['pkid','desc', currentpage*pagesize,pagesize];
-
         var str="SELECT\
         b_book.pkid,\
         b_book.`name`,\
@@ -63,10 +60,10 @@ function b_book(){
         if(wheremodel.keyword){
            str = str + " AND b_book.`name` LIKE '%" + wheremodel.keyword + "%' ";
         }
-        str = str + " ORDER BY ? ?  LIMIT ?,? "
+        str = str + " ORDER BY pkid desc  LIMIT "+ currentpage * pagesize +"," + pagesize + " ";
 
         console.log('page searching:'+str);
-        sqlhelper.querywithpara(str,para,function(result){
+        sqlhelper.query(str,function(result){
             callback(result);
         });
     },
