@@ -62,7 +62,6 @@ function b_book(){
         }
         str = str + " ORDER BY pkid desc  LIMIT "+ currentpage * pagesize +"," + pagesize + " ";
 
-        console.log('page searching:'+str);
         sqlhelper.query(str,function(result){
             callback(result);
         });
