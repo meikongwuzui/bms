@@ -58,12 +58,12 @@ function b_book(){
         LEFT OUTER JOIN b_booktype ON b_type_book_ref.fkbooktypeid=b_booktype.pkid\
         WHERE 1=1 "
         if(wheremodel.fkbooktypeid>0){
-           str = str + "AND b_type_book_ref.fkbooktypeid=" + wheremodel.keyword;
+           str = str + " AND b_type_book_ref.fkbooktypeid=" + wheremodel.keyword;
         }
         if(wheremodel.keyword){
-           str = str + "AND b_book.`name` LIKE '%" + wheremodel.keyword + "%'";
+           str = str + " AND b_book.`name` LIKE '%" + wheremodel.keyword + "%' ";
         }
-        str = str + "ORDER BY ? ?  LIMIT ?,?"
+        str = str + " ORDER BY ? ?  LIMIT ?,? "
 
         console.log('page searching:'+str);
         sqlhelper.querywithpara(str,para,function(result){
