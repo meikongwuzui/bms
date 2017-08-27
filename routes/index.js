@@ -13,7 +13,7 @@ router.all('/booktype/*',require('./book'));
 //图书
 router.all('/book/*',require('./book'));
 //用户
-router.all('/admin/*',require('./user'));
+router.all('/admin/*',require('./admin'));
 router.all('/user/*',require('./user'));
 //微信
 router.all('/api*',require('./wx'));
