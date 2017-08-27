@@ -35,6 +35,30 @@ function b_book(){
             callback(result);
         });
     },
+    this.pagelist=function(typeid,callback){
+        var str="SELECT\
+        b_book.pkid,\
+        b_book.`name`,\
+        b_book.author,\
+        b_book.bookcover,\
+        b_book.edition,\
+        b_book.contentintroduction,\
+        b_book.bookcover,\
+        b_booktype.`name` AS typename\
+        FROM\
+        b_book\
+        LEFT OUTER JOIN b_type_book_ref ON b_book.pkid=b_type_book_ref.fkbookid\
+        LEFT OUTER JOIN b_booktype ON b_type_book_ref.fkbooktypeid=b_booktype.pkid\
+        WHERE 1=1 \
+        AND b_type_book_ref.fkbooktypeid=7\
+        AND b_book.`name` LIKE '%深入%'\
+        ORDER BY pkid DESC\
+        LIMIT 0,10"
+
+        sqlhelper.query(str,function(result){
+            callback(result);
+        });
+    },
     this.insert=function(bio,callback){
         var para=[bio.name,bio.sub_name,bio.isbn,bio.author,bio.press,bio.publicationdate,bio.instoragedate,bio.edition,bio.bookcover,bio.pagecount,bio.wordcount,bio.onstroge,bio.status,bio.point,bio.plandate,bio.recommend,bio.contentintroduction,bio.authorintroduction,bio.catelogue,bio.goodcomment,bio.goodhighlight];
         sqlhelper.querywithpara("insert into `b_book`(`name`,`sub_name`,`isbn`,`author`,`press`,`publicationdate`,`instoragedate`,`edition`,`bookcover`,`pagecount`,`wordcount`,`onstroge`,`status`,`point`,`plandate`,`recommend`,`contentintroduction`,`authorintroduction`,`catelogue`,`goodcomment`,`goodhighlight`)"+

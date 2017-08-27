@@ -32,7 +32,8 @@
       <link rel="stylesheet" href="../assets/css/app.css">
       <link rel="stylesheet" href="../css/home.css">
       <style>
-          .book{width: 78%;    height: auto;    padding-left: 11%;}
+          .am-pagination>li>a, .am-pagination>li>span {margin-right: -2px;font-size: 14px;}
+          .am-pagination-default {text-align: center}
       </style>
     </head>
     <body>
@@ -124,6 +125,29 @@
               
         </div>
     
+        <ul data-am-widget="pagination"
+        class="am-pagination am-pagination-default"
+        >
+  
+        <li class="am-pagination-first ">
+          <a href="#" class="">第一页</a>
+        </li>
+  
+        <li class="am-pagination-prev ">
+          <a href="#" class="">上一页</a>
+        </li>
+        <li class="am-active">
+          <a href="#" class="am-active">2</a>
+        </li>
+        <li class="am-pagination-next ">
+          <a href="#" class="">下一页</a>
+        </li>
+  
+        <li class="am-pagination-last ">
+          <a href="#" class="">末页</a>
+        </li>
+    </ul>
+  
     <!--在这里编写你的代码-->
     
     <!--[if (gte IE 9)|!(IE)]><!-->
