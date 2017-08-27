@@ -8,7 +8,7 @@ router.get('/admin/login',function(req,res){
     res.render('../views/admin/login');
 });
 router.get('/admin/index',function(req,res){
-    res.render('../views/admin/index');
+    res.render('../views/admin/index',{datatype:'index'});
 });
 
 router.post('/admin/login', function (req, res) {
@@ -25,7 +25,7 @@ router.post('/admin/login', function (req, res) {
     });
 });
 router.get('/admin/booklist', function (req, res) {
-    res.render('../views/admin/booklist');
+    res.render('../views/admin/booklist',{datatype:'widgets'});
 });
 
 module.exports = router;
