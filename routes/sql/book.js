@@ -66,11 +66,7 @@ function b_book(){
     },
     this.detailbyisbn=function(isbn,callback){
         var para=[isbn];
-        sqlhelper.querywithpara("SELECT\
-        *\
-        FROM\
-        b_book\
-        WHERE isbn=?",
+        sqlhelper.querywithpara("SELECT * FROM b_book WHERE isbn=?",
         para,
         function(result){
             callback(result[0]);

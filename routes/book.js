@@ -36,6 +36,7 @@ router.get('/booktype/getlist',function(req,res){
          });
      }
      else if(req.query.isbn){
+         console.log('isbn:' + req.query.isbn);
         var openid=req.query.openid;
         book.detailbyisbn(req.query.isbn,function(result){
             console.log('book tail'+result);
