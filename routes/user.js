@@ -4,6 +4,9 @@ var u_weixin=require('../sql/u-weixin');
 
 var router = express.Router();
 
+router.get('/admin/login',function(req,res){
+    res.render('../views/admin/login');
+});
 router.get('/admin/index',function(req,res){
     res.render('../views/admin/index');
 });
