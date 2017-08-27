@@ -35,6 +35,15 @@ router.get('/booktype/getlist',function(req,res){
              res.render('../views/book/detail',{book:result});
          });
      }
+     else if(req.query.isbn){
+        var openid=req.query.openid;
+        book.detailbyisbn(req.query.isbn,function(result){
+            console.log('book tail'+result);
+            res.render('../views/book/detail',{book:result},function(err,html){
+                res.cookie('userinfo',{openid:openid}).send(html);
+            });
+        });
+    }
      else{
          res.status(200).send('无效的图书');
      }

@@ -63,6 +63,18 @@ function b_book(){
         function(result){
             callback(result[0]);
         });
+    },
+    this.detailbyisbn=function(isbn,callback){
+        var para=[isbn];
+        sqlhelper.querywithpara("SELECT\
+        *\
+        FROM\
+        b_book\
+        WHERE isbn=?",
+        para,
+        function(result){
+            callback(result[0]);
+        });
     }
 }
 

@@ -39,7 +39,7 @@ function resTextMsg(){
             title:'借书',
             description:'点我借书',
             picUrl:'http://www.coolwan.cc/images/column2.jpg',
-            url:'http://www.coolwan.cc/book/detail?isbn='+msg.sancodeinfo.ScanResult
+            url:'http://www.coolwan.cc/book/detail?isbn='+msg.sancodeinfo.ScanResult+'&openid='+msg.fromUserName
         });
 
         var resMsg={};
