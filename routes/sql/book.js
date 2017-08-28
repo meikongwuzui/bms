@@ -77,6 +77,7 @@ function b_book(){
            str = str + " AND b_book.`name` LIKE '%" + wheremodel.keyword + "%' ";
         }
 
+        console.log(str);
         sqlhelper.query(str,function(result){
             callback(result[0],result[1]);
         });
