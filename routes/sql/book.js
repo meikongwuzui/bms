@@ -60,10 +60,12 @@ function b_book(){
         b_booktype.`name` AS typename\
         FROM\
         b_book\
-        LEFT OUTER JOIN b_type_book_ref ON b_book.pkid=b_type_book_ref.fkbookid\
-        LEFT OUTER JOIN b_booktype ON b_type_book_ref.fkbooktypeid=b_booktype.pkid\
+        LEFT OUTER JOIN b_type_book_ref ON b_book.`pkid`=b_type_book_ref.`fkbookid` \
+        LEFT OUTER JOIN b_booktype ON b_type_book_ref.`fkbooktypeid`=b_booktype.`pkid` \
         WHERE 1=1 "
-        str = str + strwhere;        
+        if(typeof(strwhere)!=undefined){
+            str = str + strwhere;  
+        }      
         str = str + " ORDER BY pkid desc  LIMIT "+ currentpage * pagesize +"," + pagesize + " ; ";
 
 
@@ -71,10 +73,12 @@ function b_book(){
         str= str +"\
         \
         SELECT COUNT(*) FROM b_book \
-        LEFT OUTER JOIN b_type_book_ref ON b_book.pkid=b_type_book_ref.fkbookid\
-        LEFT OUTER JOIN b_booktype ON b_type_book_ref.fkbooktypeid=b_booktype.pkid\
+        LEFT OUTER JOIN b_type_book_ref ON b_book.`pkid`=b_type_book_ref.`fkbookid` \
+        LEFT OUTER JOIN b_booktype ON b_type_book_ref.`fkbooktypeid`=b_booktype.`pkid` \
         WHERE 1=1 "
-        str = str + strwhere;     
+        if(typeof(strwhere)!=undefined){
+            str = str + strwhere;  
+        }          
 
         console.log(str);
         sqlhelper.query(str,function(result){
