@@ -30,15 +30,26 @@ router.get('/booktype/getlist',function(req,res){
  //分页获取图书
  router.get('/book/pagequery',function(req,res){ 
     var pagemodel={
-         currentpage : req.query.currentpage,
+         currentpage : parseInt(req.query.currentpage) - 1,
          pagesize : req.query.pagesize,
          orderby : req.query.orderby,
          ordertype : req.query.ordertype
     };
     var wheremodel={};
     book.pagelist(pagemodel,wheremodel,function(data,modal){
-        console.log('page count:'+ modal[0].count);
-        res.render('../views/book/allbook',{booklist:data,count:modal[0].count});
+        var allcount = modal[0].count;
+        pagemodel.currentpage=pagemodel.currentpage+1;
+        if(pagemodel.currentpage*pagemodel.pagesize>=allcount){
+            pagemodel.hasnext=false;
+        }else{
+            pagemodel.hasnext=true;
+        }
+        if(pagemodel.currentpage==1){
+            pagemodel.hasprev=false;
+        }else{
+            pagemodel.hasprev=true;
+        }
+        res.render('../views/book/allbook',{booklist:data,paging:pagemodel});
     });
 })
  

@@ -1,15 +1,31 @@
 ul.am-pagination.am-pagination-default.am-no-layout(data-am-widget='pagination')
-  li.am-pagination-first
-    a(href='#', style='padding: .5em 6px;') 第一页
-  li.am-pagination-prev
-    a(href='#', style='padding: .5em 6px;') 上一页
-  li
-    a(href='#') 1
-  li.am-active
-    a.am-active(href='#') 2
-  li
-    a(href='#') 3
-  li.am-pagination-next.am-disabled
-    a(href='#', style='padding: .5em 6px;', disabled='disabled') 下一页
-  li.am-pagination-last.am-disabled
-    a(href='#', style='padding: .5em 6px;', disabled='disabled') 末页
+  -if(#{paging.hasprev})  
+    li.am-pagination-first
+      a(href='#', style='padding: .5em 6px;') 第一页
+    li.am-pagination-prev
+      a(href='#', style='padding: .5em 6px;') 上一页
+    li
+      a(href='#') #{paging.currentpage-1}
+    li.am-active
+      a.am-active(href='#') #{paging.currentpage}
+  -else
+    li.am-pagination-first.am-disabled
+      a(href='#', style='padding: .5em 6px;', disabled='disabled') 第一页
+    li.am-pagination-prev.am-disabled
+      a(href='#', style='padding: .5em 6px;', disabled='disabled') 上一页
+    li
+      a(href='#') #{paging.currentpage-1}
+    li.am-active
+      a.am-active(href='#') #{paging.currentpage}
+  -if(#{paging.hasnext})
+    li
+      a(href='#') #{paging.currentpage+1}
+    li.am-pagination-next
+      a(href='#', style='padding: .5em 6px;') 下一页
+    li.am-pagination-last
+      a(href='#', style='padding: .5em 6px;') 末页
+  -else
+    li.am-pagination-next.am-disabled
+      a(href='#', style='padding: .5em 6px;', disabled='disabled') 下一页
+    li.am-pagination-last.am-disabled
+      a(href='#', style='padding: .5em 6px;', disabled='disabled') 末页
