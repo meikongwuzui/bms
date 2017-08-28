@@ -72,7 +72,7 @@ function b_book(){
         //总数
         str= str +"\
         \
-        SELECT COUNT(*) FROM b_book \
+        SELECT COUNT(*) as count FROM b_book \
         LEFT OUTER JOIN b_type_book_ref ON b_book.`pkid`=b_type_book_ref.`fkbookid` \
         LEFT OUTER JOIN b_booktype ON b_type_book_ref.`fkbooktypeid`=b_booktype.`pkid` \
         WHERE 1=1 "
