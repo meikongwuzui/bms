@@ -90,17 +90,18 @@ html(lang='en')
                     | 分类:#{book.typename}
 
     //分页
-    ul.am-pagination.am-pagination-default(data-am-widget='pagination')
-      li.am-pagination-first
-        a(href='#') 第一页
-      li.am-pagination-prev
-        a(href='#') 上一页
-      li.am-active
-        a.am-active(href='#') 2
-      li.am-pagination-next
-        a(href='#') 下一页
-      li.am-pagination-last
-        a(href='#') 末页
+    include ../paging
+    //- ul.am-pagination.am-pagination-default(data-am-widget='pagination')
+    //-   li.am-pagination-first
+    //-     a(href='#') 第一页
+    //-   li.am-pagination-prev
+    //-     a(href='#') 上一页
+    //-   li.am-active
+    //-     a.am-active(href='#') 2
+    //-   li.am-pagination-next
+    //-     a(href='#') 下一页
+    //-   li.am-pagination-last
+    //-     a(href='#') 末页
 
     a.am-icon-btn.am-icon-th-list.am-show-sm-only.admin-menu(href='#')
     // 在这里编写你的代码
