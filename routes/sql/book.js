@@ -60,10 +60,23 @@ function b_book(){
         if(wheremodel.keyword){
            str = str + " AND b_book.`name` LIKE '%" + wheremodel.keyword + "%' ";
         }
-        str = str + " ORDER BY pkid desc  LIMIT "+ currentpage * pagesize +"," + pagesize + " ";
+        str = str + " ORDER BY pkid desc  LIMIT "+ currentpage * pagesize +"," + pagesize + " ; ";
+
+
+        //总数
+        str= str +"SELECT COUNT(*)  FROM b_book\
+        LEFT OUTER JOIN b_type_book_ref ON b_book.pkid=b_type_book_ref.fkbookid\
+        LEFT OUTER JOIN b_booktype ON b_type_book_ref.fkbooktypeid=b_booktype.pkid\
+        WHERE 1=1 "
+        if(wheremodel.fkbooktypeid>0){
+           str = str + " AND b_type_book_ref.fkbooktypeid=" + wheremodel.keyword;
+        }
+        if(wheremodel.keyword){
+           str = str + " AND b_book.`name` LIKE '%" + wheremodel.keyword + "%' ";
+        }
 
         sqlhelper.query(str,function(result){
-            callback(result);
+            callback(result[0],result[1]);
         });
     },
     this.insert=function(bio,callback){
