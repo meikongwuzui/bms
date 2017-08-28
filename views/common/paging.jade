@@ -26,11 +26,4 @@ ul.am-pagination.am-pagination-default.am-no-layout(data-am-widget='pagination')
     li.am-pagination-last.am-disabled
       a(data-href='#{paging.pagecount}', style='padding: .5em 6px;', disabled='disabled') 末页
 
-script.
-  $(function(){
-    var transhref=  location.protocol + '//' + location.hostname + '/' + location.pathname;
-    $('ul.am-pagination li.cantransform').on('click',function(){
-      var page = $(this).attr('data-href');
-      location.href= transhref + '?currentpage='+page+'&pagesize=3&orderby=pkid&ordertype=desc';
-    })
-  })
+script(src='http://coolwan.cc/js/paging.js')
