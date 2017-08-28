@@ -49,28 +49,30 @@ function b_book(){
             strwhere = strwhere + " AND b_book.`name` LIKE '%" + wheremodel.keyword + "%' ";
          }
 
-        // var str="SELECT\
-        // b_book.pkid,\
-        // b_book.`name`,\
-        // b_book.author,\
-        // b_book.bookcover,\
-        // b_book.edition,\
-        // b_book.contentintroduction,\
-        // b_book.bookcover,\
-        // b_booktype.`name` AS typename\
-        // FROM\
-        // b_book\
-        // LEFT OUTER JOIN b_type_book_ref ON b_book.`pkid`=b_type_book_ref.`fkbookid` \
-        // LEFT OUTER JOIN b_booktype ON b_type_book_ref.`fkbooktypeid`=b_booktype.`pkid` \
-        // WHERE 1=1 "
-        // // if(typeof(strwhere)!=undefined){
-        // //     str = str + strwhere;  
-        // // }      
-        // str = str + " ORDER BY pkid desc  LIMIT "+ currentpage * pagesize +"," + pagesize + " ; ";
+        var str="SELECT\
+        b_book.pkid,\
+        b_book.`name`,\
+        b_book.author,\
+        b_book.bookcover,\
+        b_book.edition,\
+        b_book.contentintroduction,\
+        b_book.bookcover,\
+        b_booktype.`name` AS typename\
+        FROM\
+        b_book\
+        LEFT OUTER JOIN b_type_book_ref ON b_book.`pkid`=b_type_book_ref.`fkbookid` \
+        LEFT OUTER JOIN b_booktype ON b_type_book_ref.`fkbooktypeid`=b_booktype.`pkid` \
+        WHERE 1=1 "
+        // if(typeof(strwhere)!=undefined){
+        //     str = str + strwhere;  
+        // }      
+        str = str + " ORDER BY pkid desc  LIMIT "+ currentpage * pagesize +"," + pagesize + " ; ";
 
 
         //总数
-        var str = "SELECT COUNT(*) FROM b_book \
+        str= str +"\
+        \
+        SELECT COUNT(*) FROM b_book \
         LEFT OUTER JOIN b_type_book_ref ON b_book.`pkid`=b_type_book_ref.`fkbookid` \
         LEFT OUTER JOIN b_booktype ON b_type_book_ref.`fkbooktypeid`=b_booktype.`pkid` \
         WHERE 1=1 "

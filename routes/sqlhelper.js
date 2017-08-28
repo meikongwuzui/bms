@@ -8,7 +8,8 @@ function SQLHelper(){
             port:'3306',
             user:'root',
             password:'qq-999999',
-            database:'bms'
+            database:'bms',
+            multipleStatements:true
         });
         
         connection.connect(function(err){
