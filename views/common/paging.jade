@@ -1,5 +1,5 @@
 ul.am-pagination.am-pagination-default.am-no-layout(data-am-widget='pagination')
-  -if(#{paging.hasprev})  
+  -if(paging.hasprev)  
     li.am-pagination-first
       a(href='#', style='padding: .5em 6px;') 第一页
     li.am-pagination-prev
@@ -17,7 +17,7 @@ ul.am-pagination.am-pagination-default.am-no-layout(data-am-widget='pagination')
       a(href='#') #{paging.currentpage-1}
     li.am-active
       a.am-active(href='#') #{paging.currentpage}
-  -if(#{paging.hasnext})
+  -if(paging.hasnext)
     li
       a(href='#') #{paging.currentpage+1}
     li.am-pagination-next
