@@ -38,6 +38,11 @@ router.get('/booktype/getlist',function(req,res){
     var wheremodel={};
     book.pagelist(pagemodel,wheremodel,function(data,modal){
         var allcount = modal[0].count;
+        if(allcount%pagemodel.pagesize==0){
+            pagemodel.pagecount=allcount/pagemodel.pagesize;
+        }else{
+            pagemodel.pagecount=allcount/pagemodel.pagesize+1;
+        }
         pagemodel.currentpage=pagemodel.currentpage+1;
         if(pagemodel.currentpage*pagemodel.pagesize>=allcount){
             pagemodel.hasnext=false;

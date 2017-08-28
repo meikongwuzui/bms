@@ -1,27 +1,36 @@
 ul.am-pagination.am-pagination-default.am-no-layout(data-am-widget='pagination')
   -if(paging.hasprev)  
-    li.am-pagination-first
-      a(href='#', style='padding: .5em 6px;') 第一页
-    li.am-pagination-prev
-      a(href='#', style='padding: .5em 6px;') 上一页
-    li
-      a(href='#') #{paging.currentpage-1}
+    li.am-pagination-first.cantransform
+      a(data-href='1', style='padding: .5em 6px;') 第一页
+    li.am-pagination-prev.cantransform
+      a(data-href='#{paging.currentpage-1}', style='padding: .5em 6px;') 上一页
+    li.cantransform
+      a(data-href='#{paging.currentpage-1}') #{paging.currentpage-1}
   -else
     li.am-pagination-first.am-disabled
-      a(href='#', style='padding: .5em 6px;', disabled='disabled') 第一页
+      a(data-href='1', style='padding: .5em 6px;', disabled='disabled') 第一页
     li.am-pagination-prev.am-disabled
-      a(href='#', style='padding: .5em 6px;', disabled='disabled') 上一页    
-  li.am-active
-    a.am-active(href='#') #{paging.currentpage}
+      a(data-href='#{paging.currentpage-1}', style='padding: .5em 6px;', disabled='disabled') 上一页    
+  li.am-active.cantransform
+    a.am-active(data-href='#') #{paging.currentpage}
   -if(paging.hasnext)
-    li
-      a(href='#') #{paging.currentpage+1}
-    li.am-pagination-next
-      a(href='#', style='padding: .5em 6px;') 下一页
-    li.am-pagination-last
-      a(href='#', style='padding: .5em 6px;') 末页
+    li.cantransform
+      a(data-href='#{paging.currentpage+1}') #{paging.currentpage+1}
+    li.am-pagination-next.cantransform
+      a(data-href='#{paging.currentpage+1}', style='padding: .5em 6px;') 下一页
+    li.am-pagination-last.cantransform
+      a(data-href='#{paging.pagecount}', style='padding: .5em 6px;') 末页
   -else
     li.am-pagination-next.am-disabled
-      a(href='#', style='padding: .5em 6px;', disabled='disabled') 下一页
+      a(data-href='#{paging.currentpage+1}', style='padding: .5em 6px;', disabled='disabled') 下一页
     li.am-pagination-last.am-disabled
-      a(href='#', style='padding: .5em 6px;', disabled='disabled') 末页
+      a(data-href='#{paging.pagecount}', style='padding: .5em 6px;', disabled='disabled') 末页
+
+script.
+  $(function(){
+    var transhref=  location.protocol + '//' + location.hostname + '/' + location.pathname;
+    $('ul.am-pagination li.cantransform').on('click',function(){
+      var page = $(this).attr('data-href');
+      location.href= transhref + '?currentpage='+page+'&pagesize=3&orderby=pkid&ordertype=desc';
+    })
+  })
