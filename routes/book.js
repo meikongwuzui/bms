@@ -37,8 +37,8 @@ router.get('/booktype/getlist',function(req,res){
     };
     var wheremodel={};
     book.pagelist(pagemodel,wheremodel,function(data,modal){
-        console.log('page count:'+ JSON.parse(modal).count);
-        res.render('../views/book/allbook',{booklist:data,count:count});
+        console.log('page count:'+ modal[0].count);
+        res.render('../views/book/allbook',{booklist:data,count:modal[0].count});
     });
 })
  
