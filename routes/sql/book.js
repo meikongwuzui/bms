@@ -40,6 +40,15 @@ function b_book(){
         var pagesize = pagemodel.pagesize;
         var orderby = pagemodel.orderby;
         var ordertype = pagemodel.ordertype;
+
+        var strwhere;
+        if(wheremodel.fkbooktypeid>0){
+            strwhere = strwhere + " AND b_type_book_ref.fkbooktypeid=" + wheremodel.keyword;
+         }
+         if(wheremodel.keyword){
+            strwhere = strwhere + " AND b_book.`name` LIKE '%" + wheremodel.keyword + "%' ";
+         }
+
         var str="SELECT\
         b_book.pkid,\
         b_book.`name`,\
@@ -54,12 +63,7 @@ function b_book(){
         LEFT OUTER JOIN b_type_book_ref ON b_book.pkid=b_type_book_ref.fkbookid\
         LEFT OUTER JOIN b_booktype ON b_type_book_ref.fkbooktypeid=b_booktype.pkid\
         WHERE 1=1 "
-        if(wheremodel.fkbooktypeid>0){
-           str = str + " AND b_type_book_ref.fkbooktypeid=" + wheremodel.keyword;
-        }
-        if(wheremodel.keyword){
-           str = str + " AND b_book.`name` LIKE '%" + wheremodel.keyword + "%' ";
-        }
+        str = str + strwhere;        
         str = str + " ORDER BY pkid desc  LIMIT "+ currentpage * pagesize +"," + pagesize + " ; ";
 
 
@@ -70,12 +74,7 @@ function b_book(){
         LEFT OUTER JOIN b_type_book_ref ON b_book.pkid=b_type_book_ref.fkbookid\
         LEFT OUTER JOIN b_booktype ON b_type_book_ref.fkbooktypeid=b_booktype.pkid\
         WHERE 1=1 "
-        if(wheremodel.fkbooktypeid>0){
-           str = str + " AND b_type_book_ref.fkbooktypeid=" + wheremodel.keyword;
-        }
-        if(wheremodel.keyword){
-           str = str + " AND b_book.`name` LIKE '%" + wheremodel.keyword + "%' ";
-        }
+        str = str + strwhere;     
 
         console.log(str);
         sqlhelper.query(str,function(result){
