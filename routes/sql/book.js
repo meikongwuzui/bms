@@ -80,7 +80,6 @@ function b_book(){
         //     str = str + strwhere;  
         // }          
 
-        console.log(str);
         sqlhelper.query(str,function(result){
             callback(result[0],result[1]);
         });
