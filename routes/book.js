@@ -1,6 +1,6 @@
 var express=require('express');
-var booktype=require('./sql/booktype');
-var book=require('./sql/book');
+var booktype=require('../sql/booktype');
+var book=require('../sql/book');
 
 var router=express.Router();
 

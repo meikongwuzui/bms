@@ -1,4 +1,4 @@
-var sqlhelper=require('../sqlhelper');
+var sqlhelper=require('./sqlhelper');
 
 function b_booktype(){
     this.getlist=function(callback){

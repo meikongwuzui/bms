@@ -1,4 +1,4 @@
-var sqlhelper=require('../routes/sqlhelper');
+var sqlhelper=require('./sqlhelper');
 
 function u_weixin(){
     this.isexist=function(openid,callback){

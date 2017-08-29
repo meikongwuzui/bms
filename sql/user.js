@@ -1,4 +1,4 @@
-var sqlhelper=require('../routes/sqlhelper');
+var sqlhelper=require('./sqlhelper');
 
 function user(){
     this.login=function(loginfo,callback){
