@@ -1,8 +1,8 @@
 var express=require("express");
 var bodyParser = require('body-parser');
-var WeiXin=require('./routes/weixin');
+var WeiXin=require('./weixin/msg');
 var routes=require('./routes/index');
-var booktype=require('./routes/sql/booktype');
+var booktype=require('./sql/booktype');
 
 var app=express();
 
@@ -33,5 +33,5 @@ booktype.getlist(function(result){
 var server=app.listen(80,function(){
     var host=server.address().address;
     var port=server.address().port;
-    console.log('example app listing at http://%s:%s', host, port);
+    console.log('bms app listing at http://%s:%s', host, port);
 })
